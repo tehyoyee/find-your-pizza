@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import FisrtPage from './pages/first-page/FisrtPage';
+import QuestionPage from './pages/question-page/QuestionPage';
+import LoadingPage from './pages/loading-page/LoadingPage';
+import ResultPage from './pages/result-page/ResultPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      test
+      <Routes>
+        <Route path='/' element={<FisrtPage />} /> {/* 첫 시작 페이지 */}
+        <Route path='/question' element={<QuestionPage />} />
+        <Route path='/loading' element={<LoadingPage />} />
+        <Route path='/result' element={<ResultPage />} />
+      </Routes>
     </div>
   );
 }
