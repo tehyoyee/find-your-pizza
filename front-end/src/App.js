@@ -8,7 +8,6 @@ import ResultPage from './pages/result-page/ResultPage';
 function App() {
   return (
     <div className='body'>
-      라우터 이외 공간
       <Routes>
         <Route path='/' element={<FisrtPage />} /> {/* 첫 시작 페이지 */}
         <Route path='/question' element={<QuestionPage />} />
