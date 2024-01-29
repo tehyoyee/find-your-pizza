@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './QuestionPage.module.scss'
+import './QuestionPage.scss'
 import axios from 'axios';
 
 const QuestionPage = () => {
