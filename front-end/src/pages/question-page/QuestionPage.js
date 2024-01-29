@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import './QuestionPage.scss'
+import './QuestionPage.module.scss'
+import axios from 'axios';
 
-const QuestionPage = ({ UUID }) => {
-  const [question, setQuestion] = useState('');
+const QuestionPage = () => {
+  const [question, setQuestion] = useState('예시 질문지');
   useEffect(() => {
-    // axios.get('http://localhost:5000/question', {
-    //  
-    // }).then(r => r);
+    // axios.get('http://localhost:5000/question')
+    // .then(function (response) {}
+    // .catch(function (error) {console.log(error)})
 
   }, [question])
 
@@ -16,19 +17,16 @@ const QuestionPage = ({ UUID }) => {
   }
 
   return (
-    <div className='question-maincontainer'>
-      <div className='question-block'>
-        <p>{question}</p>
-        <form onSubmit={onSubmithandler}>
-
+    <div className='main-container'>
+      <div className='question-container'>
+        <div className='question'>{question}</div>
+        <form className='question-form' onSubmit={onSubmithandler}>
           <button className='question-box' type='submit'>
-            {/* {first_question} */}
+            dsa
           </button>
-
           <button className='question-box' type='submit'>
-            {/* {second_question} */}
+            dsa
           </button>
-          {/*  map 메소드로 변호나해보기  */}
         </form>
       </div>
     </div>
