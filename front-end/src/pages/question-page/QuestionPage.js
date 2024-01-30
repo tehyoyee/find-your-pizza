@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import './QuestionPage.scss'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const QuestionPage = () => {
-  const [question, setQuestion] = useState('예시 질문지');
+  // const location = useLocation();
+  // const value = location.state.value;
+
+  const [answer, setAnswer] = useState([]);
   useEffect(() => {
     // axios.get('http://localhost:5000/question')
     // .then(function (response) {}
     // .catch(function (error) {console.log(error)})
 
-  }, [question])
+  }, [answer])
 
   const onSubmithandler = (e) => {
     e.preventDefault();
@@ -17,17 +21,25 @@ const QuestionPage = () => {
   }
 
   return (
-    <div className='main-container'>
-      <div className='question-container'>
-        <div className='question'>{question}</div>
-        <form className='question-form' onSubmit={onSubmithandler}>
-          <button className='question-box' type='submit'>
-            dsa
-          </button>
-          <button className='question-box' type='submit'>
-            dsa
-          </button>
-        </form>
+    <div className='question-container'>
+      <div className='question-box'>
+        <p className='question-title'>피자 무료 쿠폰이 생겼다!!</p>
+        <button className='question-answer-btn'>
+          <p>
+            피자는 무조건 파티파티지!
+          </p>
+          <p className='question-answer-maintitle'>
+            친구들이랑 먹는다.
+          </p>
+        </button>
+        <button className='question-answer-btn'>
+          <p>
+            혼자 먹는게 최고야!
+          </p>
+          <p className='question-answer-maintitle'>
+            혼자 먹는다.
+          </p>
+        </button>
       </div>
     </div>
   )
