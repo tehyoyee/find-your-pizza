@@ -31,7 +31,7 @@ const LoadingText = styled.span``;
 const LoadingPage = () => {
   return (
     <LoadingContainer>
-      <DeliveryImage src="/image/피자뽀이.png" alt="피자 배달" />
+      <DeliveryImage src="/image/pizzaBoy.png" alt="pizza delivery" />
       <LoadingTextContainer>
         <LoadingText style={{ color: "red" }}>결</LoadingText>
         <LoadingText style={{ color: "orange" }}>과</LoadingText>
