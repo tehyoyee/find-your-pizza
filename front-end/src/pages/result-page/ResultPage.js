@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 // Styled components here
 const PageContainer = styled.div`
-  width: 446px;
-  height: 926px;
+  // width: 50%;
+  // height: 926px;
+  // margin: auto;
   background-color: #ffe5c8;
   padding: 20px;
   display: flex;
@@ -15,18 +16,23 @@ const PageContainer = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  margin-top: 10%;
+  // margin-top: 10%;
+  position: absolute;
+  top: -140px;
+  left: -40px;
 `;
 
 const DeliveryImage = styled.img`
   width: 144px;
   height: 138px;
   z-index: 3;
+  margin-left: 10px;
 `;
 
 const Title = styled.span`
   font-size: 1.9em;
   margin-top: 13%;
+  margin-left: -10px;
 `;
 
 const TitleTextGroup = styled.div`
@@ -49,6 +55,8 @@ const ContentBox = styled.div`
   padding: 20px;
   position: relative;
   z-index: 2;
+  margin: 0 auto;
+  margin-top: 200px;
 `;
 
 const Content = styled.div`
@@ -77,20 +85,19 @@ const Button = styled.button`
 const ResultsPage = ({ title, content, imageUrl }) => {
   return (
     <PageContainer>
-      <TitleContainer>
-        <DeliveryImage src="/image/pizzaResultBoy.png" alt="pizza delivery" />
-        <Title>
-          <TitleText>담백한</TitleText>
-          <TitleTextGroup>
-            <TitleText style={{ color: "#FF7A00", fontWeight: "bold" }}>
-              포테이토 피자
-            </TitleText>
-            <TitleText>같은 당신</TitleText>
-          </TitleTextGroup>
-        </Title>
-      </TitleContainer>
-
       <ContentBox>
+        <TitleContainer>
+          <DeliveryImage src="/image/pizzaResultBoy.png" alt="pizza delivery" />
+          <Title>
+            <TitleText>담백한</TitleText>
+            <TitleTextGroup>
+              <TitleText style={{ color: "#FF7A00", fontWeight: "bold" }}>
+                포테이토 피자
+              </TitleText>
+              <TitleText>같은 당신</TitleText>
+            </TitleTextGroup>
+          </Title>
+        </TitleContainer>
         <Content style={{ color: "#FF7A00", fontWeight: "bold" }}>
           포테이토 피자,
         </Content>
