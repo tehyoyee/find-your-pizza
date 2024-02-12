@@ -1,29 +1,19 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pizzaTest.domain;
 
-@Entity
-public class YourEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userID;
+import lombok.Getter;
 
-    private Long uuid;
+import java.util.UUID;
 
-    public int getUserID() {
-        return userID;
-    }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
+// uuid set할 필요없으니 일단 getter만
+@Getter
+public class Member {
 
-    public Long getUuid() {
-        return uuid;
-    }
+    // UUID 생성
+    private String uuid = UUID.randomUUID().toString();
 
-    public void setUuid(Long uuid) {
+    // UUID 가져올 일이 있나? 일단 생성자 생성했음
+    public Member(String uuid) {
         this.uuid = uuid;
     }
 }
