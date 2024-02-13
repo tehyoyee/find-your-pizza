@@ -1,13 +1,11 @@
-package com.pizzaTest.controller;
+package com.pizzaTest.demo.controller;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
-import com.pizzaTest.domain.Servey;
 
 @RestController
 public class ServeyController{

@@ -1,4 +1,4 @@
-package com.pizzaTest.domain;
+package com.pizzaTest.demo.domain;
 
 import java.util.UUID;
 

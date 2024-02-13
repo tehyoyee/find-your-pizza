@@ -1,4 +1,4 @@
-package com.pizzaTest.repository;
+package com.pizzaTest.demo.repository;
 
 public interface MemberRepository {
 }

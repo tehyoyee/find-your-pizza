@@ -1,4 +1,4 @@
-package com.pizzaTest.domain;
+package com.pizzaTest.demo.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
