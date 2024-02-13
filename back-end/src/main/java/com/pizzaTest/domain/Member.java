@@ -1,29 +1,19 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pizzaTest.domain;
 
-@Entity
-public class YourEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userID;
+import lombok.Getter;
+import lombok.Setter;
 
-    private Long uuid;
+import java.util.UUID;
 
-    public int getUserID() {
-        return userID;
+@Getter @Setter
+public class Member {
+    private Long userId;
+    private UUID uuid;
+
+    public Member() {
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public Long getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(Long uuid) {
-        this.uuid = uuid;
+    public Member(Long userId) {
+        this.userId = userId;
     }
 }

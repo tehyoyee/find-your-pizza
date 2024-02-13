@@ -1,47 +1,19 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pizzaTest.domain;
 
-@Entity
-public class YourEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+public class Result {
     private int resultId;
-
     private String resultTitle;
     private String resultSubTitle;
     private String resultDescription;
 
-    public int getResultId() {
-        return resultId;
-    }
-
-    public void setResultId(int resultId) {
+    public Result(int resultId, String resultTitle, String resultSubTitle, String resultDescription) {
         this.resultId = resultId;
-    }
-
-    public String getResultTitle() {
-        return resultTitle;
-    }
-
-    public void setResultTitle(String resultTitle) {
         this.resultTitle = resultTitle;
-    }
-
-    public String getResultSubTitle() {
-        return resultSubTitle;
-    }
-
-    public void setResultSubTitle(String resultSubTitle) {
         this.resultSubTitle = resultSubTitle;
-    }
-
-    public String getResultDescription() {
-        return resultDescription;
-    }
-
-    public void setResultDescription(String resultDescription) {
         this.resultDescription = resultDescription;
     }
 }

@@ -1,48 +1,20 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pizzaTest.domain;
 
-@Entity
-public class YourEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+public class Servey {
     private int questionId;
-
     private String questionTitle;
     private String firstQuestion;
     private String secondQuestion;
-    private int[12] selectQuestion;
+    private int[] selectQuestion = new int[12];
 
-    public int getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getFirstQuestion() {
-        return firstQuestion;
-    }
-
-    public void setFirstQuestion(String firstQuestion) {
+    public Servey(String questionTitle, String firstQuestion, String secondQuestion, int[] selectQuestion) {
+        this.questionTitle = questionTitle;
         this.firstQuestion = firstQuestion;
-    }
-
-    public String getSecondQuestion() {
-        return secondQuestion;
-    }
-
-    public void setSecondQuestion(String secondQuestion) {
         this.secondQuestion = secondQuestion;
+        this.selectQuestion = selectQuestion;
     }
 }
