@@ -1,10 +1,12 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.pizzaTest.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class YourEntity {
+public class Servey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int questionId;
@@ -12,7 +14,8 @@ public class YourEntity {
     private String questionTitle;
     private String firstQuestion;
     private String secondQuestion;
-    private int[12] selectQuestion;
+
+    private int[] selectQuestion = new int[12];
 
     public int getQuestionId() {
         return questionId;
@@ -22,12 +25,12 @@ public class YourEntity {
         this.questionId = questionId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getQuestionTitle() {
+        return questionTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setQuestionTitle(String title) {
+        this.questionTitle = questionTitle;
     }
 
     public String getFirstQuestion() {
@@ -45,4 +48,9 @@ public class YourEntity {
     public void setSecondQuestion(String secondQuestion) {
         this.secondQuestion = secondQuestion;
     }
+
+    public int[] getSelectQuestion() { return selectQuestion;}
+
+    public void setSelectQuestion(int[] selectQuestion){this.selectQuestion=selectQuestion;}
+
 }
