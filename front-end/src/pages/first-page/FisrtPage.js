@@ -1,8 +1,12 @@
 import React from 'react';
-import FirstPagaComponent from '../../components/firstpage/FirstPagaComponent';
+import FirstPagaComponent from './components/FirstPagaComponent'
+import PizzaFlakes from './components/PizzaFlakes';
 const FirstPage = () => {
   return (
-    <FirstPagaComponent />
+    <>
+      <FirstPagaComponent />
+      <PizzaFlakes />
+    </>
   );
 };
 
