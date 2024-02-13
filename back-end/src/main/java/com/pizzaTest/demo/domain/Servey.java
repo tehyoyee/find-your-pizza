@@ -1,4 +1,4 @@
-package com.pizzaTest.domain;
+package com.pizzaTest.demo.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,12 +9,10 @@ public class Servey {
     private String questionTitle;
     private String firstQuestion;
     private String secondQuestion;
-    private int[] selectQuestion = new int[12];
 
-    public Servey(String questionTitle, String firstQuestion, String secondQuestion, int[] selectQuestion) {
+    public Servey(String questionTitle, String firstQuestion, String secondQuestion) {
         this.questionTitle = questionTitle;
         this.firstQuestion = firstQuestion;
         this.secondQuestion = secondQuestion;
-        this.selectQuestion = selectQuestion;
     }
 }

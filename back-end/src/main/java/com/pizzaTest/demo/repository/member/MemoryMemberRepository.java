@@ -1,6 +1,7 @@
-package com.pizzaTest.repository;
+package com.pizzaTest.demo.repository.member;
 
-import com.pizzaTest.domain.Member;
+import com.pizzaTest.demo.domain.Member;
+import com.pizzaTest.demo.repository.member.MemberRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MemoryMemberRepository implements MemberRepository {
-    private static Map<Long, Member> store = new ConcurrentHashMap<>();
-    private static long sequence = 0L;
+    private static Map<Integer, Member> store = new ConcurrentHashMap<>();
+    private static int sequence = 0;
 
     @Override
     public Member save(Member member) {
@@ -21,7 +22,7 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Member findById(Long userId) {
+    public Member findById(int userId) {
         return store.get(userId);
     }
 

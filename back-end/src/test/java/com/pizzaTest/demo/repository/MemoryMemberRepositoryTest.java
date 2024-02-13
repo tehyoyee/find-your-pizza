@@ -1,14 +1,13 @@
-package com.pizzaTest.repository;
+package com.pizzaTest.demo.repository;
 
-import com.pizzaTest.domain.Member;
-import org.assertj.core.api.Assertions;
+import com.pizzaTest.demo.domain.Member;
+import com.pizzaTest.demo.repository.member.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MemoryMemberRepositoryTest {
 
@@ -55,11 +54,9 @@ class MemoryMemberRepositoryTest {
         List<Member> resultList = repository.findAll();
         assertThat(resultList.size()).isEqualTo(4);
 
-        /*
         for(Member member : resultList){
-            System.out.println("member.getUserID() = " + member.getUserID());
+            System.out.println("member.getUserID() = " + member.getUserId());
             System.out.println("member.getUuid() = " + member.getUuid());
         }
-         */
     }
 }

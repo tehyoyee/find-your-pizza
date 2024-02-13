@@ -1,4 +1,4 @@
-package com.pizzaTest.domain;
+package com.pizzaTest.demo.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,13 +7,13 @@ import java.util.UUID;
 
 @Getter @Setter
 public class Member {
-    private Long userId;
+    private int userId;
     private UUID uuid;
 
     public Member() {
     }
 
-    public Member(Long userId) {
+    public Member(int userId) {
         this.userId = userId;
     }
 }

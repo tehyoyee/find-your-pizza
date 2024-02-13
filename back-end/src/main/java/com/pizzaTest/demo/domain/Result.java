@@ -1,4 +1,4 @@
-package com.pizzaTest.domain;
+package com.pizzaTest.demo.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +10,7 @@ public class Result {
     private String resultSubTitle;
     private String resultDescription;
 
-    public Result(int resultId, String resultTitle, String resultSubTitle, String resultDescription) {
-        this.resultId = resultId;
+    public Result(String resultTitle, String resultSubTitle, String resultDescription) {
         this.resultTitle = resultTitle;
         this.resultSubTitle = resultSubTitle;
         this.resultDescription = resultDescription;

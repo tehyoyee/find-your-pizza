@@ -1,6 +1,6 @@
-package com.pizzaTest.repository;
+package com.pizzaTest.demo.repository.member;
 
-import com.pizzaTest.domain.Member;
+import com.pizzaTest.demo.domain.Member;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ public interface MemberRepository {
     Member save(Member member);
 
     // 회원 찾기
-    Member findById(Long userId);
+    Member findById(int userId);
     List<Member> findAll();
 }
