@@ -7,14 +7,14 @@ import ResultPage from './pages/result-page/ResultPage';
 
 function App() {
   return (
-    <div className='body'>
+    <>
       <Routes>
         <Route path='/' element={<FisrtPage />} /> {/* 첫 시작 페이지 */}
         <Route path='/question' element={<QuestionPage />} />
         <Route path='/loading' element={<LoadingPage />} />
         <Route path='/result' element={<ResultPage />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
