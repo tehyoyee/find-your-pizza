@@ -11,5 +11,7 @@ import lombok.Setter;
 public class UuidResponseDto {
 
     String uuid;
+    // 어쩌고 requestDto
+    // 어쩌고 responseDto
 
 }

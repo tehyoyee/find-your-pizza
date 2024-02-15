@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Getter @Setter
 @Entity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @NoArgsConstructor
 public class Member {
 
