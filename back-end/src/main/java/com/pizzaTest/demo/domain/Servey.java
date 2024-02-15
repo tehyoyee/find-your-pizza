@@ -12,7 +12,8 @@ import lombok.Setter;
 public class Servey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int questionId;
+    private Long id;
+
     private String questionTitle;
     private String firstQuestion;
     private String secondQuestion;

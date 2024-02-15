@@ -12,11 +12,11 @@ import java.util.UUID;
 @Getter @Setter
 @Entity
 public class Member {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID userId;
 
-    public Member(UUID userId) {
-        this.userId = userId;
+    @Id
+    private String id;
+
+    public Member(String id) {
+        this.id = id;
     }
 }

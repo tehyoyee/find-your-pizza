@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 public class Result {
     @Id
-    private int resultId;
+    private Long id;
     private String resultTitle;
     private String resultSubTitle;
     private String resultDescription;
