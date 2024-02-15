@@ -19,7 +19,10 @@ public class MemberService {
         String uuid = UUID.randomUUID().toString();
 
         UuidResponseDto uuidResponseDto = new UuidResponseDto(uuid);
-        Member member = new Member(uuid);
+        Member member = Member.builder()
+                .uuid(uuid)
+                .build();
+
         memberRepository.save(member);
 
         return uuidResponseDto;

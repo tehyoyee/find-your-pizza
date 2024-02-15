@@ -1,22 +1,24 @@
 package com.pizzaTest.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
 @Getter @Setter
 @Entity
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class Member {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public Member(String id) {
-        this.id = id;
+    private String uuid;
+
+    @Builder
+    public Member(String uuid) {
+        this.uuid = uuid;
     }
 }
