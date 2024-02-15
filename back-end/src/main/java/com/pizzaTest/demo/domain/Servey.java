@@ -1,10 +1,17 @@
 package com.pizzaTest.demo.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+@Entity
 public class Servey {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int questionId;
     private String questionTitle;
     private String firstQuestion;

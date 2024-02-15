@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/result")
 @RequiredArgsConstructor
 public class ResultController {
-    @GetMapping("/{resultID}}")
+    @GetMapping("/{resultID}")
     public void editForm(@PathVariable("resultID") int resultID, Model model) {
     }
 }

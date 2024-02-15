@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class ServeyController{
 
-    @GetMapping("/{questionId}}")
+    @GetMapping("/{questionId}")
     public void sendForm(@PathVariable("questionId") int questionId, Model model) {
 
     }
