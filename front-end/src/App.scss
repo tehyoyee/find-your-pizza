@@ -3,9 +3,16 @@ body{
   padding: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
   background-color: #FFE5C8;
-  overflow: hidden;
+  // overflow: hidden;
 }
 body::-webkit-scrollbar {
   display: none;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
 }
