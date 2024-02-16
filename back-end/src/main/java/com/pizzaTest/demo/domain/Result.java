@@ -1,6 +1,7 @@
 package com.pizzaTest.demo.domain;
 
 import jakarta.persistence.Entity;
+<<<<<<< HEAD
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,10 +11,22 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int resultId;
 
+=======
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+@Entity
+public class Result {
+    @Id
+    private Long id;
+>>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
     private String resultTitle;
     private String resultSubTitle;
     private String resultDescription;
 
+<<<<<<< HEAD
     public int getResultId() {
         return resultId;
     }
@@ -43,6 +56,11 @@ public class Result {
     }
 
     public void setResultDescription(String resultDescription) {
+=======
+    public Result(String resultTitle, String resultSubTitle, String resultDescription) {
+        this.resultTitle = resultTitle;
+        this.resultSubTitle = resultSubTitle;
+>>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
         this.resultDescription = resultDescription;
     }
 }

@@ -1,5 +1,6 @@
 package com.pizzaTest.demo.controller;
 
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,20 @@ public class ServeyController{
     // 결과 조희
     @GetMapping("/result")
     public void GetResult(UUID uuid){
+=======
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/question")
+@RequiredArgsConstructor
+public class ServeyController{
+
+    @GetMapping("/{questionId}")
+    public void sendForm(@PathVariable("questionId") int questionId, Model model) {
+>>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
 
     }
 }
