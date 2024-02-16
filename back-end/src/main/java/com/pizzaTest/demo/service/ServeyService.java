@@ -22,7 +22,6 @@ public class ServeyService{
         }
             if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1){
                 mbti = MBTI.INFJ;
-
             }else if(calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1){
                 mbti = MBTI.INFP;
             }else if(calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] < 1 && calculateNumber[3] > 1){
@@ -49,7 +48,7 @@ public class ServeyService{
                 mbti = MBTI.ESTJ;
             }else if(calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1){
                 mbti = MBTI.ESFP;
-            }else if (calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] < 1) {
+            }else if(calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] < 1){
                 mbti = MBTI.ESTP;
             }else {
                 mbti = MBTI.ENTP;
