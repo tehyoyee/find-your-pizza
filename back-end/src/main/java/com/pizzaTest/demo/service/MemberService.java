@@ -1,18 +1,12 @@
 package com.pizzaTest.demo.service;
-
 import com.pizzaTest.demo.domain.Member;
-<<<<<<< HEAD
-
-public class MemberService{
-    private final Member member = new Member();
-}
-=======
 import com.pizzaTest.demo.dto.UuidResponseDto;
-import com.pizzaTest.demo.repository.member.MemberRepository;
+import com.pizzaTest.demo.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+
 
 @Service
 public class MemberService {
@@ -35,4 +29,3 @@ public class MemberService {
     }
 
 }
->>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3

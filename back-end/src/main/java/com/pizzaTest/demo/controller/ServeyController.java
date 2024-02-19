@@ -1,46 +1,43 @@
 package com.pizzaTest.demo.controller;
 
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
+import com.pizzaTest.demo.dto.QuestionResponseDto;
+import com.pizzaTest.demo.service.ServeyService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+//@RequestMapping("/question")
+//@RequiredArgsConstructor
 public class ServeyController{
 
+    @Autowired
+    private ServeyService serveyService;
 
-    // 설문지 조회
+    // 설문지 보내기
+    @PostMapping("/{question.id}") //
+    public QuestionResponseDto sendServey(@PathVariable("questionId") Long id) {
+        return serveyService.sendQuestion();
+    }
+
+    // 설문응답지 받기
     @GetMapping("/question/{uuid}")
-    public void ReadServey(@RequestBody  UUID uuid){
+    public void ReadServey(@PathVariable("uuid") @RequestBody Long id){
 
     }
 
     // 설문 결과 요청
     @PutMapping("/result")
-    public void RequestResult(UUID uuid){
+    public void RequestResult(Long id){
 
     }
 
     // 결과 조희
     @GetMapping("/result")
-    public void GetResult(UUID uuid){
-=======
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-@Controller
-@RequestMapping("/question")
-@RequiredArgsConstructor
-public class ServeyController{
-
-    @GetMapping("/{questionId}")
-    public void sendForm(@PathVariable("questionId") int questionId, Model model) {
->>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
+    public void GetResult(Long id){
 
     }
 }

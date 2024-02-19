@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="GradleMigrationSettings" migrationVersion="1" />
-  <component name="GradleSettings">
-    <option name="linkedExternalProjectsSettings">
-      <GradleProjectSettings>
-        <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/back-end" />
-        <option name="gradleJvm" value="17" />
-=======
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/back-end" />
->>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/back-end" />
           </set>
         </option>
-<<<<<<< HEAD
-        <option name="resolveExternalAnnotations" value="false" />
-=======
->>>>>>> 7d39abeaca2303565317fc99db785cb459ef13b3
       </GradleProjectSettings>
     </option>
   </component>
