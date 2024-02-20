@@ -17,27 +17,17 @@ public class ServeyController{
     @Autowired
     private ServeyService serveyService;
 
-    // 설문지 보내기
-    @PostMapping("/{question.id}") //
-    public QuestionResponseDto sendServey(@PathVariable("questionId") Long id) {
+    // 설문지 보내기(조회요청)
+    @PostMapping("/question/{id}") //
+    public QuestionResponseDto sendServey(@PathVariable("id") Long id) {
         return serveyService.sendQuestion();
     }
 
-    // 설문응답지 받기
-    @GetMapping("/question/{uuid}")
-    public void ReadServey(@PathVariable("uuid") @RequestBody Long id){
+//    // 설문응답지 받기
+//    @GetMapping("/question/{uuid}")
+//    public void ReadServey(@PathVariable("uuid") @RequestBody Long id){
+//
+//    }
 
-    }
 
-    // 설문 결과 요청
-    @PutMapping("/result")
-    public void RequestResult(Long id){
-
-    }
-
-    // 결과 조희
-    @GetMapping("/result")
-    public void GetResult(Long id){
-
-    }
 }

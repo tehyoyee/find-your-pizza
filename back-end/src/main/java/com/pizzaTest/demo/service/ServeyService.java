@@ -1,14 +1,10 @@
 package com.pizzaTest.demo.service;
 
 import com.pizzaTest.demo.domain.Servey;
-import com.pizzaTest.demo.dto.QuestionRequestDto;
 import com.pizzaTest.demo.dto.QuestionResponseDto;
-import com.pizzaTest.demo.repository.MBTI;
 import com.pizzaTest.demo.repository.ServeyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
 
 @Service
 public class ServeyService{

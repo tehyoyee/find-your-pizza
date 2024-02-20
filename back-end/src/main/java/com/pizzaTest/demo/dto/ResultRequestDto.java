@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class QuestionRequestDto {
+public class ResultRequestDto {
     int[] selectQuestion;
     String userMBTI;
 }
