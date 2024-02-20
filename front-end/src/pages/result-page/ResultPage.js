@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ResultPage.scss";
 
-// React component
 const ResultsPage = ({ title, content, imageUrl }) => {
+  useEffect(() => {
+    // Set a specific background color when the ResultsPage component mounts
+    document.body.style.backgroundColor = "#ffe5c8";
+
+    // Revert the background color back to default when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = "#ffe5c8";
+    };
+  }, []);
+
+// React component
   return (
     <div className="PageContainer">
       <div className="ContentBox">
