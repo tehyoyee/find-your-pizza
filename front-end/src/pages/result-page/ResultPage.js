@@ -18,8 +18,8 @@ const ResultsPage = ({ title, content, imageUrl }) => {
             </span>
           </span>
         </div>
-        <span className="Content" style={{ color: "#FF7A00", fontWeight: "bold" }}>
-          포테이토 피자,
+        <span className="Content" style={{ color: "#FF7A00", fontWeight: "bold", paddingRight: "5px" }}>
+          포테이토 피자는
         </span>
         <span className="Content">
           기본적인 재료인 감자로 독특하고 담백한 맛을 만들어냅니다. 포테이토
