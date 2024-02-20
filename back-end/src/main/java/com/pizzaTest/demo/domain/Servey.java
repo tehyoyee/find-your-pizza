@@ -21,11 +21,14 @@ public class Servey {
     private String questionTitle;
     private String firstQuestion;
     private String secondQuestion;
-
+    private int[] selectQuestion;
+    private String MBTI;
     @Builder
-    public Servey(String questionTitle, String firstQuestion, String secondQuestion) {
+    public Servey(String questionTitle, String firstQuestion, String secondQuestion, int[] selectQuestion, String MBTI) {
         this.questionTitle = questionTitle;
         this.firstQuestion = firstQuestion;
         this.secondQuestion = secondQuestion;
+        this.selectQuestion = selectQuestion;
+        this.MBTI = MBTI;
     }
 }
