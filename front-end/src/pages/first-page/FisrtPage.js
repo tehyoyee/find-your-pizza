@@ -1,11 +1,13 @@
-import React from 'react'
-
-const FisrtPage = () => {
+import React from 'react';
+import FirstPagaComponent from './components/FirstPagaComponent'
+import PizzaFlakes from './components/PizzaFlakes';
+const FirstPage = () => {
   return (
-    <div>
-      firstPage
-    </div>
-  )
-}
+    <>
+      <FirstPagaComponent />
+      <PizzaFlakes />
+    </>
+  );
+};
 
-export default FisrtPage
+export default FirstPage;

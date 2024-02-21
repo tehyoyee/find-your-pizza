@@ -1,3 +1,9 @@
+# 한우헉 - 1, 2페이지 구현
+
+# 심하영 - 3, 4페이지 구현
+
+홧팅해봐요!!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
