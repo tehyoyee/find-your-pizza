@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ResultPage.scss";
 
-// React component
 const ResultsPage = ({ title, content, imageUrl }) => {
+  useEffect(() => {
+    // Set a specific background color when the ResultsPage component mounts
+    document.body.style.backgroundColor = "#ffe5c8";
+
+    // Revert the background color back to default when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = "#ffe5c8";
+    };
+  }, []);
+
+// React component
   return (
     <div className="PageContainer">
       <div className="ContentBox">
@@ -18,8 +28,8 @@ const ResultsPage = ({ title, content, imageUrl }) => {
             </span>
           </span>
         </div>
-        <span className="Content" style={{ color: "#FF7A00", fontWeight: "bold" }}>
-          포테이토 피자,
+        <span className="Content" style={{ color: "#FF7A00", fontWeight: "bold", paddingRight: "5px" }}>
+          포테이토 피자는
         </span>
         <span className="Content">
           기본적인 재료인 감자로 독특하고 담백한 맛을 만들어냅니다. 포테이토
