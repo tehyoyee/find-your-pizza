@@ -16,6 +16,7 @@ public class ServeyService{
 
         //Question 불러드려서 한 번에 보내기 어떻게?
         // 일단 하드코딩으로 보내기
+        //list ??
 
         String questionTitle="Title";
         String firstQuestion="question1";
