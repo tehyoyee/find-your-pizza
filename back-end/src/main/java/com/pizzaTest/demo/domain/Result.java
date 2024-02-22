@@ -1,5 +1,6 @@
 package com.pizzaTest.demo.domain;
 
+import com.pizzaTest.demo.repository.MBTI;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,14 +19,14 @@ public class Result {
     private String resultSubTitle;
     private String resultDescription;
     private int[] selectQuestion;
-    private String MBTI;
+    private MBTI mbti;
 
     @Builder
-    public Result(String resultTitle, String resultSubTitle, String resultDescription, int[] selectQuestion, String MBTI) {
+    public Result(String resultTitle, String resultSubTitle, String resultDescription, int[] selectQuestion, MBTI mbti, String uuid) {
         this.resultTitle = resultTitle;
         this.resultSubTitle = resultSubTitle;
         this.resultDescription = resultDescription;
         this.selectQuestion = selectQuestion;
-        this.MBTI = MBTI;
+        this.mbti = mbti;
     }
 }

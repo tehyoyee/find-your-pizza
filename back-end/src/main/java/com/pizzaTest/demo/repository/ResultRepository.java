@@ -12,5 +12,5 @@ public interface ResultRepository extends JpaRepository<Result, Long> {
     Optional<Result> findById(Long id);
 
     // MBTI 찾는걸 넣어야하나?
-    Optional<Result> findByMBTI(String MBTI);
+    Optional<Result> findByMbti(MBTI mbti);
 }
