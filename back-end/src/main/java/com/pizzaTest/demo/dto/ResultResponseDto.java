@@ -14,7 +14,6 @@ public class ResultResponseDto {
     String resultDescription;
 
     public ResultResponseDto(MBTI mbti, String resultTitle, String resultSubTitle, String resultDescription) {
-
         this.mbti = mbti;
         this.resultTitle = resultTitle;
         this.resultSubTitle = resultSubTitle;

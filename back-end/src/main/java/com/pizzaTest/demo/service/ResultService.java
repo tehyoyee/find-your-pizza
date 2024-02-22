@@ -1,10 +1,8 @@
 package com.pizzaTest.demo.service;
 
-import com.pizzaTest.demo.domain.Member;
 import com.pizzaTest.demo.domain.Result;
 import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.ResultResponseDto;
-import com.pizzaTest.demo.dto.UuidResponseDto;
 import com.pizzaTest.demo.repository.MBTI;
 import com.pizzaTest.demo.repository.MemberRepository;
 import com.pizzaTest.demo.repository.ResultRepository;
@@ -12,12 +10,8 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.UUID;
-
 @Service
 public class ResultService {
-
     @Autowired
     private ResultRepository resultRepository;
     @Autowired
@@ -28,16 +22,14 @@ public class ResultService {
 
         memberRepository.findByUuid(uuid).orElseThrow(
                 ()-> new BadRequestException("invalid uuid")
-                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고
+                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
         );
 
-//        List<Integer> selectQuestion = resultRequestDto.getSelectQuestion();
         int[] selectQuestion = resultRequestDto.getSelectQuestion();
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
 
         for(int i=0; i<4; i++) {
-//            calculateNumber[i] = selectQuestion.get(3 * i) + selectQuestion.get(3 * i + 1) + selectQuestion.get(3 * i + 2);
             calculateNumber[i] = selectQuestion[3 * i] + selectQuestion[3 * i + 1] + selectQuestion[3 * i + 2];
         }
         if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1){
@@ -74,7 +66,7 @@ public class ResultService {
             userMbti = MBTI.ENTP;
         }
 
-
+        // 계산한 MBTI 저장
         Result result = resultRepository.findByMbti(userMbti).orElseThrow(
                 ()-> new BadRequestException("자료없음")
         );
@@ -85,39 +77,5 @@ public class ResultService {
                 .resultTitle(result.getResultTitle())
                 .resultSubTitle(result.getResultSubTitle())
                 .build();
-//
-//        Result result = Result.builder()
-//                        .selectQuestion(selectQuestion) // 저장해둘 필요가 있나??
-//                        .mbti(userMbti)
-//                        .build();
-//
-
-
-//        this.resultTitle = resultTitle;
-//        this.resultSubTitle = resultSubTitle;
-//        this.resultDescription = resultDescription;
-//        this.selectQuestion = selectQuestion;
-//        this.uuid = uuid;
-//        this.MBTI = MBTI;
-//        resultRepository.save(result);
-
     }
-
-//    public ResultResponseDto readResult(String uuid) {
-//
-//        resultRepository.findById(uuid);
-//
-//
-////        ResultResponseDto resultResponseDto = new ResultResponseDto(resultTitle,resultSubTitle,resultDescription);
-////        Result result = Result.builder()
-////                .resultTitle(resultTitle)
-////                .resultSubTitle(resultSubTitle)
-////                .resultDescription(resultDescription)
-////                .build();
-//
-//
-//        return resultResponseDto;
-//    }
-//
-
 }

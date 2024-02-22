@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ServeyRepository extends JpaRepository<Servey, Long> {
-//    Servey save(Servey servey);
-
+    // ID로 설문지 찾기
     Optional<Servey> findById(Long id);
-
-
 }
