@@ -6,6 +6,7 @@ import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.ResultResponseDto;
 import com.pizzaTest.demo.dto.UuidResponseDto;
 import com.pizzaTest.demo.repository.MBTI;
+import com.pizzaTest.demo.repository.MemberRepository;
 import com.pizzaTest.demo.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,17 @@ public class ResultService {
 
     @Autowired
     private ResultRepository resultRepository;
-    // MBTI 설문지로 MBTI 계산
-    public ResultRequestDto CalulateMBTI(int[] selectQuestion){
+    @Autowired
+    private MemberRepository memberRepository;
 
+    // MBTI 설문지로 MBTI 계산
+    public ResultResponseDto CalulateMBTI(ResultRequestDto resultRequestDto, String uuid){
+
+        memberRepository.findByUuid(uuid).orElseThrow(
+                ()-> new IllegalArgumentException("invalid uuid")
+        );
+
+        int[] selectQuestion = resultRequestDto.getSelectQuestion();
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
 
@@ -61,40 +70,49 @@ public class ResultService {
         }
 
 
+        Result result = resultRepository.findByMbti(userMbti).orElseThrow(
+                ()-> new IllegalArgumentException("자료없음")
+        );
 
-        ResultRequestDto questionRequestDto =
-                new ResultRequestDto(selectQuestion, userMbti.name());
-
-        Result result = Result.builder()
-                .selectQuestion(selectQuestion) // 저장해둘 필요가 있나??
-                .MBTI(String.valueOf(userMbti))
+        return ResultResponseDto.builder()
+                .mbti(result.getMbti())
+                .resultDescription(result.getResultDescription())
+                .resultTitle(result.getResultTitle())
+                .resultSubTitle(result.getResultSubTitle())
                 .build();
+//
+//        Result result = Result.builder()
+//                        .selectQuestion(selectQuestion) // 저장해둘 필요가 있나??
+//                        .mbti(userMbti)
+//                        .build();
+//
 
-        resultRepository.save(result);
 
-        return questionRequestDto;
+//        this.resultTitle = resultTitle;
+//        this.resultSubTitle = resultSubTitle;
+//        this.resultDescription = resultDescription;
+//        this.selectQuestion = selectQuestion;
+//        this.uuid = uuid;
+//        this.MBTI = MBTI;
+//        resultRepository.save(result);
 
     }
 
-    public ResultResponseDto readResult() {
-
-        String uuid = UUID.randomUUID().toString();
-
-        String resultTitle="Title";
-        String resultSubTitle="SubTitle";
-        String resultDescription="Description";
-
-        ResultResponseDto resultResponseDto = new ResultResponseDto(resultTitle,resultSubTitle,resultDescription);
-        Result result = Result.builder()
-                .resultTitle(resultTitle)
-                .resultSubTitle(resultSubTitle)
-                .resultDescription(resultDescription)
-                .build();
-
-        resultRepository.save(result);
-
-        return resultResponseDto;
-    }
-
+//    public ResultResponseDto readResult(String uuid) {
+//
+//        resultRepository.findById(uuid);
+//
+//
+////        ResultResponseDto resultResponseDto = new ResultResponseDto(resultTitle,resultSubTitle,resultDescription);
+////        Result result = Result.builder()
+////                .resultTitle(resultTitle)
+////                .resultSubTitle(resultSubTitle)
+////                .resultDescription(resultDescription)
+////                .build();
+//
+//
+//        return resultResponseDto;
+//    }
+//
 
 }

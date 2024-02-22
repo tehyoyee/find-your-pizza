@@ -5,9 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 @AllArgsConstructor
 public class ResultRequestDto {
-    int[] selectQuestion;
-    String userMBTI;
+
+    private int[] selectQuestion;
+
 }
