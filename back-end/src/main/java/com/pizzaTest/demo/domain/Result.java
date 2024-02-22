@@ -1,10 +1,7 @@
 package com.pizzaTest.demo.domain;
 
 import com.pizzaTest.demo.repository.MBTI;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +9,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
+@NoArgsConstructor
 public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +18,7 @@ public class Result {
     private String resultSubTitle;
     private String resultDescription;
     private int[] selectQuestion;
+    @Enumerated(EnumType.STRING)
     private MBTI mbti;
 
     @Builder

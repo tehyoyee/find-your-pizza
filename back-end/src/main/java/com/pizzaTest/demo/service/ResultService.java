@@ -8,6 +8,7 @@ import com.pizzaTest.demo.dto.UuidResponseDto;
 import com.pizzaTest.demo.repository.MBTI;
 import com.pizzaTest.demo.repository.MemberRepository;
 import com.pizzaTest.demo.repository.ResultRepository;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +24,11 @@ public class ResultService {
     private MemberRepository memberRepository;
 
     // MBTI 설문지로 MBTI 계산
-    public ResultResponseDto CalulateMBTI(ResultRequestDto resultRequestDto, String uuid){
+    public ResultResponseDto CalulateMBTI(ResultRequestDto resultRequestDto, String uuid) throws BadRequestException {
 
         memberRepository.findByUuid(uuid).orElseThrow(
-                ()-> new IllegalArgumentException("invalid uuid")
+                ()-> new BadRequestException("invalid uuid")
+                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고
         );
 
 //        List<Integer> selectQuestion = resultRequestDto.getSelectQuestion();
@@ -74,7 +76,7 @@ public class ResultService {
 
 
         Result result = resultRepository.findByMbti(userMbti).orElseThrow(
-                ()-> new IllegalArgumentException("자료없음")
+                ()-> new BadRequestException("자료없음")
         );
 
         return ResultResponseDto.builder()
