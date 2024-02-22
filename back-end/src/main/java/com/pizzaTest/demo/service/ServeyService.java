@@ -40,8 +40,6 @@ public class ServeyService{
 
 
 
-
-
 //        serveyRepository.save(servey); // 저장해둘 필요가 있나??
 
         return dtoList;

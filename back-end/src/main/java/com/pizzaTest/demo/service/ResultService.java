@@ -11,6 +11,7 @@ import com.pizzaTest.demo.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -28,11 +29,13 @@ public class ResultService {
                 ()-> new IllegalArgumentException("invalid uuid")
         );
 
+//        List<Integer> selectQuestion = resultRequestDto.getSelectQuestion();
         int[] selectQuestion = resultRequestDto.getSelectQuestion();
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
 
         for(int i=0; i<4; i++) {
+//            calculateNumber[i] = selectQuestion.get(3 * i) + selectQuestion.get(3 * i + 1) + selectQuestion.get(3 * i + 2);
             calculateNumber[i] = selectQuestion[3 * i] + selectQuestion[3 * i + 1] + selectQuestion[3 * i + 2];
         }
         if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1){

@@ -19,6 +19,7 @@ public class ResultController {
     @PostMapping("/result")
     public ResultResponseDto RequestResult(@RequestBody ResultRequestDto resultRequestDto, HttpServletRequest request){
         String uuid = request.getHeader("uuid");
+        System.out.println(resultRequestDto.getSelectQuestion());
         return resultService.CalulateMBTI(resultRequestDto, uuid);
 //        return resultService.readResult(uuid);
     }
