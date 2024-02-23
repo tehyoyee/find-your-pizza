@@ -17,10 +17,10 @@ public class ResultController {
     @PostMapping("/result")
     public ResultResponseDto RequestResult(@RequestBody ResultRequestDto resultRequestDto, HttpServletRequest request) throws BadRequestException {
         String uuid = request.getHeader("uuid");
-        System.out.println(resultRequestDto.getSelectQuestion()[0]);
         return resultService.CalulateMBTI(resultRequestDto, uuid);
     }
 
     // 통계 추가예정
+
 
 }
