@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a77c5ee5-ce25-42c4-a83f-d09b5a6ed481" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ServeyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ServeyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/ResultRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/ResultRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/SurveyResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/SurveyResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/UuidResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/UuidResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/ResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/ResultRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/ServeyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/repository/ServeyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ServeyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ServeyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
