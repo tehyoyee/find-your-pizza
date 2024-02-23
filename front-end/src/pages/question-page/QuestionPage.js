@@ -1,82 +1,87 @@
 import React, { useEffect, useState } from "react";
-import LoadingPage from "../loading-page/LoadingPage";
 import { useNavigate } from "react-router-dom";
-
+import { useCookies } from "react-cookie";
+import SkeletonBtn from "./components/SkeletonBtn";
 import "./QuestionPage.scss";
 import axios from "axios";
-// import { useLocation } from 'react-router-dom';
 
 const QuestionPage = () => {
-  // const location = useLocation();
-  // const value = location.state.value;
-  const [isLoading, setIsLoading] = useState(false);
-  const [answer, setAnswer] = useState([]);
   const navigate = useNavigate();
+  const [uuid, setUuid] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [cookies, setCookie] = useCookies(["uuid"]);
 
+  const [survey, setSurvey] = useState([]); // 질문지
+  const [answers, setAnswers] = useState([]); // 질문 결과 값
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // 현쟤 질문위치
   useEffect(() => {
-    // 초기 데이터 로드 관련 로직
+    const fetchData = async () => {
+      try {
+        const surveyresponse = await axios.get('http://localhost:8080/question');
+        const uuidresponse = await axios.get('http://localhost:8080/uuid');
+        setSurvey(surveyresponse.data);
+        setUuid(uuidresponse.data.uuid);
+        setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
+
+        setTimeout(() => setIsLoading(true), 500);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
-const onAnswerSelect = (selectedAnswer) => {
-  setAnswer(selectedAnswer);
-  onSubmithandler();
-};
+  const handleAnswer = async (selectedAnswer) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[currentQuestionIndex] = selectedAnswer;
 
-  const onSubmithandler = async () => {
-    // e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/submit-answers",
-        { answer: answer }
-      );
-      navigate("/result", { state: { results: response.data } });
-    } catch (error) {
-      console.log(error);
-    // } finally {
-    //   setIsLoading(false);
+    // 다음 질문으로 이동
+    if (currentQuestionIndex < survey.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    } else {
+      try {
+        await axios.post(
+          "http://localhost:8080/question",
+          { answers: updatedAnswers },
+          { withCredentials: true }
+        );
+        navigate("/result");
+      } catch (error) {
+        console.error(error);
+      }
     }
-
-    setTimeout(() => {
-      navigate('/result');
-      // navigate('/result-page', { state: { title: "결과 제목", content: "결과 내용", imageUrl: "/path/to/image.png" } });
-      setIsLoading(false);
-    }, 2000);
+    setAnswers(updatedAnswers);
   };
 
-  if (isLoading) {
-    return <LoadingPage />;
-  }
-  // const [answer, setAnswer] = useState([]);
-  // useEffect(() => {
-  //   // axios.get('http://localhost:5000/question')
-  //   // .then(function (response) {}
-  //   // .catch(function (error) {console.log(error)})
-
-  // }, [answer])
-
-  // const onSubmithandler = (e) => {
-  //   e.preventDefault();
-  //   // axios.post('http://localhost:5000/question', {}).then
-  // }
-
   return (
-    <div className="question-container">
-      <div className="question-box">
-        <p className="question-title">피자 무료 쿠폰이 생겼다!!</p>
-        <button className="question-answer-btn" onClick={() => onAnswerSelect('party')}>
-          <p>피자는 무조건 파티파티지!</p>
-          <p className="question-answer-maintitle">친구들이랑 먹는다.</p>
-        </button>
-        <button className="question-answer-btn" onClick={() => onAnswerSelect('alone')}>
-          <p>혼자 먹는게 최고야!</p>
-          <p className="question-answer-maintitle" onSubmit={onSubmithandler}>
-            혼자 먹는다.
-          </p>
-        </button>
-      </div>
-    </div>
+    <>
+      {!isLoading ? (
+        <div className="question-container">
+          <div className="question-box">
+            <p className="question-title">질문지 목록!</p>
+            <SkeletonBtn />
+            <SkeletonBtn />
+          </div>
+        </div>
+      ) : (
+        // <LoadingPage />
+        <div className="question-container">
+          <div className="question-box">
+            {survey.map((s, index) => {
+              if (index === currentQuestionIndex) {
+                return (
+                  <>
+                    <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
+                    <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
+                  </>
+                );
+              }
+            })}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

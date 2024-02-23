@@ -6,8 +6,38 @@
   <component name="ChangeListManager">
     <list default="true" id="a77c5ee5-ce25-42c4-a83f-d09b5a6ed481" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Result.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/DemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/DemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/ResultController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/ServeyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/controller/ServeyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/domain/Member$MemberBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/domain/Member$MemberBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/domain/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/domain/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/ResultRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/ResultRequestDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/ResultResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/ResultResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/UuidResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/dto/UuidResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/repository/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/repository/MemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/ResultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/ServeyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/classes/java/main/com/pizzaTest/demo/service/ServeyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ServeyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ServeyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ServeyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ServeyService.java" afterDir="false" />
+>>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

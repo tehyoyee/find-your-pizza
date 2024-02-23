@@ -21,7 +21,12 @@ const ResultsPage = () => {
         setTimeout(() => {
           setFormData(response.data);
           setIsLoading(false);
+<<<<<<< HEAD
         }, 2000);
+=======
+        }, 2000); // 2초 후에 데이터 설정 및 로딩 상태 변경
+        console.log(response);
+>>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
       } catch (e) {
         console.error(e);
         setIsLoading(false);
@@ -53,7 +58,7 @@ const ResultsPage = () => {
   // React component
   return (
     <>
-      {!isLoading ? (
+      {isLoading ? (
         <LoadingPage />
       ) : (
         <div className="PageContainer">
