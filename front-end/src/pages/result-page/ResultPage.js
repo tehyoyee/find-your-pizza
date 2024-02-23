@@ -33,6 +33,7 @@ const ResultsPage = () => {
           setFormData(response.data);
           setIsLoading(false);
         }, 2000); // 2초 후에 데이터 설정 및 로딩 상태 변경
+        console.log(response);
       } catch (e) {
         console.error(e);
         setIsLoading(false); // 에러 발생 시에도 로딩 상태 변경
@@ -56,7 +57,7 @@ const ResultsPage = () => {
   // React component
   return (
     <>
-      {!isLoading ? (
+      {isLoading ? (
         <LoadingPage />
       ) : (
         <div className="PageContainer">

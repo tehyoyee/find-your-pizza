@@ -23,7 +23,7 @@ const QuestionPage = () => {
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
 
-        setTimeout(() => setIsLoading(true), 3000);
+        setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
         console.error(error);
       }
@@ -40,12 +40,12 @@ const QuestionPage = () => {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       try {
-        navigate("/result");
         await axios.post(
           "http://localhost:8080/question",
           { answers: updatedAnswers },
           { withCredentials: true }
         );
+        navigate("/result");
       } catch (error) {
         console.error(error);
       }

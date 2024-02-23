@@ -3,6 +3,7 @@ package com.pizzaTest.demo.controller;
 import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.ResultResponseDto;
 import com.pizzaTest.demo.service.ResultService;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
@@ -18,14 +19,13 @@ public class ResultController {
     // 설문 결과 요청 - 결과지 저장 및 반환
 
     @GetMapping("/result")
-    public ResultResponseDto RequestResult(ResultRequestDto resultRequestDto, HttpServletRequest request) throws BadRequestException {
-        String uuid = request.getHeader("uuid");
-//        int[] getSelectQuestion = resultRequestDto.getSelectQuestion();
+    public ResultResponseDto RequestResult(HttpServletRequest request) throws BadRequestException {
 
-        log.info(uuid);
-        System.out.println(uuid);
+        Cookie[] cookies = request.getCookies();
+        String uuid = cookies[0].getValue();
 
-        return resultService.CalulateMBTI(resultRequestDto, uuid);
+        return resultService.sendResult(uuid);
+
     }
 
     // 통계 추가예정
