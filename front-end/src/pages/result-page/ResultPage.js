@@ -8,6 +8,19 @@ const ResultsPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const copyToClipboard = async () => {
+    try {
+      const shareUrl = `${window.location.origin}/resultPage?resultId=${formData.uuid}`;
+      await navigator.clipboard.writeText(shareUrl);
+      alert("URL이 클립보드에 복사되었습니다.");
+    } catch (err) {
+      console.error("클립보드 복사 실패:", err);
+    }
+  };
+
+  <div className="Button" onClick={copyToClipboard}>
+    URL 복사하기
+  </div>;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,8 +94,10 @@ const ResultsPage = () => {
             <span className="Content">{formData.result_description}</span>
           </div>
           <div className="ButtonsContainer">
-            <div className="Button" onClick={() => navigate('/')}>다시하기</div>
-            <div className="Button">URL 복사하기</div>
+            <div className="Button" onClick={() => navigate("/")}>
+              다시하기
+            </div>
+            <div className="Button" onClick={copyToClipboard}>URL 복사하기</div>
             <div className="Button">카카오톡으로 공유</div>
           </div>
         </div>
