@@ -1,20 +1,18 @@
 import React from 'react'
 import styles from '../FirstPage.module.scss'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const FirstPagaComponent = () => {
+  const navigate = useNavigate();
 
-  // const navigate = useNavigate();
-  // const onStartBtn = async () => {
-  //   try {
-  //     const response = await axios.get('/question')
-  //     console.log(response);
-  //     navigate('/question', { state: { value: response.data } })
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  const onButtonHandler = async (e) => {
+    e.preventDefault();
+    try {
+      navigate('/question');
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
 
   return (
     <div id='root' className={styles.root} >
@@ -30,7 +28,7 @@ const FirstPagaComponent = () => {
           </div>
           <p>내가 만약 <span>피자</span>라면?</p>
           <img className={styles.FirstPageMainImg} src='Image/pizzaBoy.png' alt='PizzaBoy' />
-          <button className={styles.FirstPageStartBtn} type='submit'>시작하기</button>
+          <button className={styles.FirstPageStartBtn} onClick={onButtonHandler}>시작하기</button>
         </div>
 
         <div className={styles.FirstPageBottom}>
