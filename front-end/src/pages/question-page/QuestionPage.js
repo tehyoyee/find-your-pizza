@@ -17,11 +17,11 @@ const QuestionPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const surveyresponse = await axios.get('http://localhost:8080/');
+        const surveyresponse = await axios.get('http://localhost:8080/question');
         const uuidresponse = await axios.get('http://localhost:8080/uuid');
-        setSurvey(surveyresponse.data.testSurvey);
-        setUuid(uuidresponse.data.testUUID);
-        setCookie('uuid', uuidresponse.data.testUUID, { path: '/', maxAge: 36000 });
+        setSurvey(surveyresponse.data);
+        setUuid(uuidresponse.data.uuid);
+        setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
 
         setTimeout(() =>
           setIsLoading(true)
@@ -63,7 +63,6 @@ const QuestionPage = () => {
             <SkeletonBtn />
           </div>
         </div>
-        // <LoadingPage />
       ) : (
         <div className="question-container">
           <div className='question-box'>
@@ -71,9 +70,9 @@ const QuestionPage = () => {
               if (index === currentQuestionIndex) {
                 return (
                   <>
-                    <p className="question-title">{s.title}</p>
-                    <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.first_qeustion}</button>
-                    <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.second_qeustion}</button>
+                    <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
+                    <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
                 );
               }
