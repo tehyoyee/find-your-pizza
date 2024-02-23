@@ -23,7 +23,7 @@ const ResultsPage = () => {
 
     // 페이지 배경색 설정
     document.body.style.backgroundColor = "#ffe5c8";
-    
+
     return () => {
       // 컴포넌트 언마운트 시 배경색 복원
       document.body.style.backgroundColor = "#FFFFFF";
