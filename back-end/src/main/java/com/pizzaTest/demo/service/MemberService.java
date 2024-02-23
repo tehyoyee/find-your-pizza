@@ -26,6 +26,7 @@ public class MemberService {
                 .uuid(uuid)
                 .build();
         memberRepository.save(member);
+
         return uuidResponseDto;
     }
 
