@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ResultPage.scss";
 import axios from "axios";
 import LoadingPage from "../loading-page/LoadingPage";
 
 const ResultsPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -79,7 +81,7 @@ const ResultsPage = () => {
             <span className="Content">{formData.result_description}</span>
           </div>
           <div className="ButtonsContainer">
-            <div className="Button">다시하기</div>
+            <div className="Button" onClick={() => navigate('/')}>다시하기</div>
             <div className="Button">URL 복사하기</div>
             <div className="Button">카카오톡으로 공유</div>
           </div>
