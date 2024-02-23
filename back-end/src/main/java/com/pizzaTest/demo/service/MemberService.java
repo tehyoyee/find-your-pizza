@@ -15,7 +15,6 @@ public class MemberService {
     public UuidResponseDto createUuid() {
 
         //UUID 생성
-
         String uuid = UUID.randomUUID().toString();
 
         //생성 후 Dto로 만들어서 return
