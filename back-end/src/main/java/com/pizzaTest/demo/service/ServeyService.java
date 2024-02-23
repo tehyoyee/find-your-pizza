@@ -18,6 +18,7 @@ public class ServeyService{
     public List<SurveyResponseDto> sendSurvey(){
 
         // repository에 있는 설문지 전부 꺼내오기
+
         List<Servey> serveyList = serveyRepository.findAll();
 
 
@@ -33,10 +34,6 @@ public class ServeyService{
                     .build());
         }
 
-
         return dtoList;
     }
-
-
-
 }

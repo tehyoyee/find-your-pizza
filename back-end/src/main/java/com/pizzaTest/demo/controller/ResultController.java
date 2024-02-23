@@ -9,14 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@RequestMapping("/result")
-//@RequiredArgsConstructor
 public class ResultController {
-
     @Autowired
     private ResultService resultService;
 
-    // 설문 결과 요청 ---- 결과지 저장 및 반환
+    // 설문 결과 요청 - 결과지 저장 및 반환
     @PostMapping("/result")
     public ResultResponseDto RequestResult(@RequestBody ResultRequestDto resultRequestDto, HttpServletRequest request) throws BadRequestException {
         String uuid = request.getHeader("uuid");

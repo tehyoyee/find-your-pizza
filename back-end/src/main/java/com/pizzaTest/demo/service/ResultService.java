@@ -1,19 +1,14 @@
 package com.pizzaTest.demo.service;
 
-import com.pizzaTest.demo.domain.Member;
 import com.pizzaTest.demo.domain.Result;
 import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.ResultResponseDto;
-import com.pizzaTest.demo.dto.UuidResponseDto;
 import com.pizzaTest.demo.repository.MBTI;
 import com.pizzaTest.demo.repository.MemberRepository;
 import com.pizzaTest.demo.repository.ResultRepository;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.UUID;
 
 @Service
 public class ResultService {
@@ -31,8 +26,9 @@ public class ResultService {
 
         memberRepository.findByUuid(uuid).orElseThrow(
                 ()-> new BadRequestException("invalid uuid")
-                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고
+                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
         );
+
 
         // 선택한 설문지
         int[] selectQuestion = resultRequestDto.getSelectQuestion();
@@ -79,6 +75,7 @@ public class ResultService {
         }
 
         // 계산된 mbti에 해당하는 결과값 추출, 없으면 에러
+        // 계산한 MBTI 저장
         Result result = resultRepository.findByMbti(userMbti).orElseThrow(
                 ()-> new BadRequestException("자료없음")
         );

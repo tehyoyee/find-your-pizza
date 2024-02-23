@@ -1,6 +1,5 @@
 package com.pizzaTest.demo.controller;
 
-
 import com.pizzaTest.demo.dto.SurveyResponseDto;
 import com.pizzaTest.demo.service.ServeyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import java.util.List;
 
 @RestController
 public class ServeyController{
-
     @Autowired
     private ServeyService serveyService;
 

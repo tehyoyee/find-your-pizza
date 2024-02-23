@@ -7,8 +7,9 @@ import java.util.Optional;
 
 public interface ResultRepository extends JpaRepository<Result, Long> {
 
-
+    // ID로 결과지 찾기
     Optional<Result> findById(Long id);
 
+    // MBTI로 결과지 찾기
     Optional<Result> findByMbti(MBTI mbti);
 }

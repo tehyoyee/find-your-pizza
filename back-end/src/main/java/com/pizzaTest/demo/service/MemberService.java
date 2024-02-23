@@ -7,16 +7,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-
 @Service
 public class MemberService {
-
     @Autowired
     private MemberRepository memberRepository;
 
     public UuidResponseDto createUuid() {
 
         //UUID 생성
+
         String uuid = UUID.randomUUID().toString();
 
         //생성 후 Dto로 만들어서 return
@@ -27,7 +26,6 @@ public class MemberService {
                 .uuid(uuid)
                 .build();
         memberRepository.save(member);
-
         return uuidResponseDto;
     }
 

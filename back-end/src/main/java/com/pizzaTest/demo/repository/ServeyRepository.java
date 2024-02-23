@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public interface ServeyRepository extends JpaRepository<Servey, Long> {
 
+    // ID로 설문지 찾기
     Optional<Servey> findById(Long id);
-
-
 }
