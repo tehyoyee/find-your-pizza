@@ -2,12 +2,11 @@ package com.pizzaTest.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Getter
-@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class ResultRequestDto {
-    int[] selectQuestion;
-    String userMBTI;
+    private int[] selectQuestion;
 }

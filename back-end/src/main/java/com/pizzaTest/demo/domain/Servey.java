@@ -4,15 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//<<<<<<< HEAD
-//
-//=======
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter @Setter
 @Entity
+@NoArgsConstructor
 public class Servey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
