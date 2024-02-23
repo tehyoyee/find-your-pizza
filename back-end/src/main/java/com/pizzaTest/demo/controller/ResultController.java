@@ -24,6 +24,7 @@ public class ResultController {
         Cookie[] cookies = request.getCookies();
         String uuid = cookies[0].getValue();
 
+
         return resultService.sendResult(uuid);
 
     }
