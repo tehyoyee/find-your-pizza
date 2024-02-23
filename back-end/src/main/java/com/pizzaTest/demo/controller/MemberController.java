@@ -19,7 +19,5 @@ public class MemberController {
     public UuidResponseDto createMember() {
         return memberService.createUuid();
     }
-
-
 }
 

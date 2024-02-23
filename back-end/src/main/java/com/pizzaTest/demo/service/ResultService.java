@@ -88,4 +88,5 @@ public class ResultService {
                 .resultSubTitle(result.getResultSubTitle())
                 .build();
     }
+
 }
