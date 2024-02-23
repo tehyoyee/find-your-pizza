@@ -19,21 +19,11 @@ public class ResultController {
     // 설문 결과 요청 ---- 결과지 저장 및 반환
     @PostMapping("/result")
     public ResultResponseDto RequestResult(@RequestBody ResultRequestDto resultRequestDto, HttpServletRequest request) throws BadRequestException {
-//    public void RequestResult(@RequestBody ResultRequestDto resultRequestDto, HttpServletRequest request){
         String uuid = request.getHeader("uuid");
         System.out.println(resultRequestDto.getSelectQuestion()[0]);
         return resultService.CalulateMBTI(resultRequestDto, uuid);
-//        return resultService.readResult(uuid);
     }
 
-//    결과지 주세요 -> 계산해서 무슨 mbti 인지 -> 그걸 디비에서 꺼내오죠 -> 리턴.
-//            통계를 위해서 : 어디다가 ??
-
-    // 결과 조희
-    // HttpServletRequest request : 리퀘스트... 통째로?
-//    @GetMapping("/result")
-//    public ResultResponseDto GetResult(HttpServletRequest request){
-//        return resultService.readResult(uuid);
-//    }
+    // 통계 추가예정
 
 }

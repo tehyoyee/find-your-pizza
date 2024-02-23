@@ -9,14 +9,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-    // 회원 저장
-//    Member save(Member member);
 
     // 회원 찾기
     Optional<Member> findById(Long id);
 
+    // uuid 찾기
     Optional<Member> findByUuid(String uuid);
 
-
-//    List<Member> findAll();
 }

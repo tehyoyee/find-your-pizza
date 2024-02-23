@@ -18,8 +18,11 @@ import java.util.UUID;
 @Service
 public class ResultService {
 
+    // 저장용 repository
     @Autowired
     private ResultRepository resultRepository;
+
+    // UUID 확인용(갖고있는 UUID와 프론트에서 보내준 UUID가 같은지 확인)
     @Autowired
     private MemberRepository memberRepository;
 
@@ -31,13 +34,14 @@ public class ResultService {
                 //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고
         );
 
-//        List<Integer> selectQuestion = resultRequestDto.getSelectQuestion();
+        // 선택한 설문지
         int[] selectQuestion = resultRequestDto.getSelectQuestion();
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
-
+        // 설문지 0,1 중 선택
+        // 0 : E S T P
+        // 1 : I N F J
         for(int i=0; i<4; i++) {
-//            calculateNumber[i] = selectQuestion.get(3 * i) + selectQuestion.get(3 * i + 1) + selectQuestion.get(3 * i + 2);
             calculateNumber[i] = selectQuestion[3 * i] + selectQuestion[3 * i + 1] + selectQuestion[3 * i + 2];
         }
         if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1){
@@ -74,50 +78,17 @@ public class ResultService {
             userMbti = MBTI.ENTP;
         }
 
-
+        // 계산된 mbti에 해당하는 결과값 추출, 없으면 에러
         Result result = resultRepository.findByMbti(userMbti).orElseThrow(
                 ()-> new BadRequestException("자료없음")
         );
 
+        // Dto에 mbti와 설명글 저장 후 return
         return ResultResponseDto.builder()
                 .mbti(result.getMbti())
                 .resultDescription(result.getResultDescription())
                 .resultTitle(result.getResultTitle())
                 .resultSubTitle(result.getResultSubTitle())
                 .build();
-//
-//        Result result = Result.builder()
-//                        .selectQuestion(selectQuestion) // 저장해둘 필요가 있나??
-//                        .mbti(userMbti)
-//                        .build();
-//
-
-
-//        this.resultTitle = resultTitle;
-//        this.resultSubTitle = resultSubTitle;
-//        this.resultDescription = resultDescription;
-//        this.selectQuestion = selectQuestion;
-//        this.uuid = uuid;
-//        this.MBTI = MBTI;
-//        resultRepository.save(result);
-
     }
-
-//    public ResultResponseDto readResult(String uuid) {
-//
-//        resultRepository.findById(uuid);
-//
-//
-////        ResultResponseDto resultResponseDto = new ResultResponseDto(resultTitle,resultSubTitle,resultDescription);
-////        Result result = Result.builder()
-////                .resultTitle(resultTitle)
-////                .resultSubTitle(resultSubTitle)
-////                .resultDescription(resultDescription)
-////                .build();
-//
-//
-//        return resultResponseDto;
-//    }
-//
-
 }

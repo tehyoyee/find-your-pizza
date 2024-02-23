@@ -16,13 +16,16 @@ public class MemberService {
 
     public UuidResponseDto createUuid() {
 
+        //UUID 생성
         String uuid = UUID.randomUUID().toString();
 
+        //생성 후 Dto로 만들어서 return
         UuidResponseDto uuidResponseDto = new UuidResponseDto(uuid);
+
+        // repository에 저장
         Member member = Member.builder()
                 .uuid(uuid)
                 .build();
-
         memberRepository.save(member);
 
         return uuidResponseDto;

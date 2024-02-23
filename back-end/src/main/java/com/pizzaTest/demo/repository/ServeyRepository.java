@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ServeyRepository extends JpaRepository<Servey, Long> {
-//    Servey save(Servey servey);
 
     Optional<Servey> findById(Long id);
 

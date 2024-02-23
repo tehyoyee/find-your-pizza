@@ -17,18 +17,13 @@ public class ServeyService{
 
     public List<SurveyResponseDto> sendSurvey(){
 
-        //Question 불러드려서 한 번에 보내기 어떻게?
-        // 일단 하드코딩으로 보내기
-        //list ??
-//        String questionTitle="Title";
-//        String firstQuestion="question1";
-//        String secondQuestion="question2";
-//        QuestionResponseDto questionResponseDto =
-//                new QuestionResponseDto(questionTitle,firstQuestion,secondQuestion);
-
+        // repository에 있는 설문지 전부 꺼내오기
         List<Servey> serveyList = serveyRepository.findAll();
 
+
         List<SurveyResponseDto> dtoList = new ArrayList<>();
+
+        // 설문지 전부 List형태의 dto에 저장하고 return
         for (Servey x : serveyList) {
             dtoList.add(SurveyResponseDto.builder()
                     .firstQuestion(x.getFirstQuestion())
@@ -38,9 +33,6 @@ public class ServeyService{
                     .build());
         }
 
-
-
-//        serveyRepository.save(servey); // 저장해둘 필요가 있나??
 
         return dtoList;
     }
