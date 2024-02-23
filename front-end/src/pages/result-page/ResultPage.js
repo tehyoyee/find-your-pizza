@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./ResultPage.scss";
-import axios from "axios";
-import LoadingPage from "../loading-page/LoadingPage";
+import axios from 'axios';
+import LoadingPage from '../loading-page/LoadingPage';
 
 const ResultsPage = () => {
   const [formData, setFormData] = useState({});
@@ -11,9 +11,7 @@ const ResultsPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("http://localhost:8080/result", {
-          withCredentials: true,
-        });
+        const response = await axios.get('http://localhost:8080/result', { withCredentials: true });
         setFormData(response.data);
       } catch (e) {
         console.error(e);
@@ -23,11 +21,12 @@ const ResultsPage = () => {
     };
     fetchData();
 
+    // 페이지 배경색 설정
     document.body.style.backgroundColor = "#ffe5c8";
 
-    // Revert the background color back to default when the component unmounts
     return () => {
-      document.body.style.backgroundColor = "#ffe5c8";
+      // 컴포넌트 언마운트 시 배경색 복원
+      document.body.style.backgroundColor = "#FFFFFF";
     };
   }, []);
 
@@ -37,39 +36,41 @@ const ResultsPage = () => {
 
   // React component
   return (
-    <div className="PageContainer">
-      <div className="ContentBox">
-        <div className="TitleContainer">
-          <img
-            className="DeliveryImage"
-            src="/image/pizzaResultBoy.png"
-            alt="pizza delivery"
-          />
-          <span className="Title">
-            <span className="TitleText">{formData.result_sub_title}</span>
-            <span className="TitleTextGroup">
-              <span
-                className="TitleText"
-                style={{ color: "#FF7A00", fontWeight: "bold" }}
-              >
-                {formData.result_title}
+    <>
+      {!isLoading ? (
+        <LoadingPage />
+      ) : (
+        <div className="PageContainer">
+          {formData.MBTI}
+          <div className="ContentBox">
+            <div className="TitleContainer">
+              <img className="DeliveryImage" src="/image/pizzaResultBoy.png" alt="pizza delivery" />
+              <span className="Title">
+                <span className="TitleText">{formData.result_sub_title}</span>
+                <span className="TitleTextGroup">
+                  <span className="TitleText" style={{ color: "#FF7A00", fontWeight: "bold" }}>
+                    {formData.result_title}
+                  </span>
+                  <span className="TitleText">같은 당신</span>
+                </span>
               </span>
-              <span className="TitleText">같은 당신</span>
+            </div>
+            <span className="Content" style={{ color: "#FF7A00", fontWeight: "bold", paddingRight: "5px" }}>
+              {formData.result_title}는
             </span>
-          </span>
+            <span className="Content">
+              {formData.result_description}
+            </span>
+          </div>
+          <div className="ButtonsContainer">
+            <div className="Button">다시하기</div>
+            <div className="Button">URL 복사하기</div>
+            <div className="Button">카카오톡으로 공유</div>
+          </div>
         </div>
-        <span
-          className="Content"
-          style={{ color: "#FF7A00", fontWeight: "bold", paddingRight: "5px" }}
-        ></span>
-        <span className="Content">{formData.result_description}</span>
-      </div>
-      <div className="ButtonsContainer">
-        <div className="Button">다시하기</div>
-        <div className="Button">URL 복사하기</div>
-        <div className="Button">카카오톡으로 공유</div>
-      </div>
-    </div>
+      )
+      }
+    </>
   );
 };
 
