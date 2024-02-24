@@ -21,12 +21,7 @@ const ResultsPage = () => {
         setTimeout(() => {
           setFormData(response.data);
           setIsLoading(false);
-<<<<<<< HEAD
         }, 2000);
-=======
-        }, 2000); // 2초 후에 데이터 설정 및 로딩 상태 변경
-        console.log(response);
->>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
       } catch (e) {
         console.error(e);
         setIsLoading(false);
@@ -62,7 +57,7 @@ const ResultsPage = () => {
         <LoadingPage />
       ) : (
         <div className="PageContainer">
-          {formData.MBTI}
+          {formData.mbti}
           <div className="ContentBox">
             <div className="TitleContainer">
               <img
@@ -71,13 +66,13 @@ const ResultsPage = () => {
                 alt="pizza delivery"
               />
               <span className="Title">
-                <span className="TitleText">{formData.result_sub_title}</span>
+                <span className="TitleText">{formData.resultSubTitle}</span>
                 <span className="TitleTextGroup">
                   <span
                     className="TitleText"
                     style={{ color: "#FF7A00", fontWeight: "bold" }}
                   >
-                    {formData.result_title}
+                    {formData.resultTitle}
                   </span>
                   <span className="TitleText">같은 당신</span>
                 </span>
@@ -91,9 +86,9 @@ const ResultsPage = () => {
                 paddingRight: "5px",
               }}
             >
-              {formData.result_title}는
+              {formData.resultTitle}는
             </span>
-            <span className="Content">{formData.result_description}</span>
+            <span className="Content">{formData.resultDescription}</span>
           </div>
           <div className="ButtonsContainer">
             <div className="Button" onClick={() => navigate("/")}>
