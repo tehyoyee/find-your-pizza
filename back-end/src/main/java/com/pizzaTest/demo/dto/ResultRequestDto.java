@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
+@AllArgsConstructor
+@Getter @Setter
 public class ResultRequestDto {
-    private int[] selectQuestion;
-
-
+    private String[] answers;
 }

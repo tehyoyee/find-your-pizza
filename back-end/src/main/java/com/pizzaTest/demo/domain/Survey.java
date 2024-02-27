@@ -9,7 +9,7 @@ import lombok.*;
 @Getter @Setter
 @Entity
 @NoArgsConstructor
-public class Servey {
+public class Survey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,9 +18,8 @@ public class Servey {
     private String firstQuestion;
     private String secondQuestion;
 
-
     @Builder
-    public Servey(String questionTitle, String firstQuestion, String secondQuestion) {
+    public Survey(String questionTitle, String firstQuestion, String secondQuestion) {
         this.questionTitle = questionTitle;
         this.firstQuestion = firstQuestion;
         this.secondQuestion = secondQuestion;
