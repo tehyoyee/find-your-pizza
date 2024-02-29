@@ -3,10 +3,11 @@ package com.pizzaTest.demo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter @Setter
 public class ResultRequestDto {
-    private int[] selectQuestion;
+    private String[] answers;
 }

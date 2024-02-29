@@ -29,6 +29,7 @@ public class ResultService {
 
     // MBTI 설문지로 MBTI 계산
 <<<<<<< HEAD
+<<<<<<< HEAD
     public ResultResponseDto CalulateMBTI(ResultRequestDto resultRequestDto, String uuid) throws BadRequestException {
 
         memberRepository.findByUuid(uuid).orElseThrow(
@@ -41,6 +42,10 @@ public class ResultService {
     @Transactional //?
     public void CalulateMBTI(ResultRequestDto resultRequestDto, String uuid) throws BadRequestException {
 
+=======
+    @Transactional // Entity 수정하겠다. (= DB수정)
+    public void CalulateMBTI(int[] selectQuestion, String uuid) throws BadRequestException {
+>>>>>>> main
         memberRepository.findByUuid(uuid).orElseThrow(
                 () -> new BadRequestException("invalid uuid")
                 //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
@@ -48,7 +53,6 @@ public class ResultService {
 
 >>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
         // 선택한 설문지
-        int[] selectQuestion = resultRequestDto.getSelectQuestion();
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
 <<<<<<< HEAD
@@ -100,6 +104,7 @@ public class ResultService {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 계산된 mbti에 해당하는 결과값 추출, 없으면 에러
         // 계산한 MBTI 저장
         Result result = resultRepository.findByMbti(userMbti).orElseThrow(
@@ -115,6 +120,9 @@ public class ResultService {
                 .build();
     }
 =======
+=======
+        // DB수정 -> @Transactional가 있으면 변경된 것을 관찰해서 변경시켜준다.
+>>>>>>> main
         Member member = memberRepository.findByUuid(uuid).orElseThrow(
                 () -> new BadRequestException("d")
         );
