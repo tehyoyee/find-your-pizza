@@ -1,5 +1,6 @@
 package com.pizzaTest.demo.service;
 
+import com.pizzaTest.demo.domain.Member;
 import com.pizzaTest.demo.domain.Result;
 import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.ResultResponseDto;
@@ -11,11 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-<<<<<<< HEAD
-=======
 import java.util.Optional;
 
->>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
 @Service
 public class ResultService {
 
@@ -28,45 +26,21 @@ public class ResultService {
     private MemberRepository memberRepository;
 
     // MBTI 설문지로 MBTI 계산
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public ResultResponseDto CalulateMBTI(ResultRequestDto resultRequestDto, String uuid) throws BadRequestException {
-
-        memberRepository.findByUuid(uuid).orElseThrow(
-                ()-> new BadRequestException("invalid uuid")
-                //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
-        );
-
-
-=======
-    @Transactional //?
-    public void CalulateMBTI(ResultRequestDto resultRequestDto, String uuid) throws BadRequestException {
-
-=======
     @Transactional // Entity 수정하겠다. (= DB수정)
     public void CalulateMBTI(int[] selectQuestion, String uuid) throws BadRequestException {
->>>>>>> main
         memberRepository.findByUuid(uuid).orElseThrow(
                 () -> new BadRequestException("invalid uuid")
                 //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
         );
 
->>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
         // 선택한 설문지
         int[] calculateNumber = new int[4];
         MBTI userMbti = null;
-<<<<<<< HEAD
-        // 설문지 0,1 중 선택
-        // 0 : E S T P
-        // 1 : I N F J
-        for(int i=0; i<4; i++) {
-=======
 
         // 설문지 0,1 중 선택
         // 0 : E S T P
         // 1 : I N F J
         for (int i = 0; i < 4; i++) {
->>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
             calculateNumber[i] = selectQuestion[3 * i] + selectQuestion[3 * i + 1] + selectQuestion[3 * i + 2];
         }
         if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
@@ -103,26 +77,7 @@ public class ResultService {
             userMbti = MBTI.ENTP;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // 계산된 mbti에 해당하는 결과값 추출, 없으면 에러
-        // 계산한 MBTI 저장
-        Result result = resultRepository.findByMbti(userMbti).orElseThrow(
-                ()-> new BadRequestException("자료없음")
-        );
-
-        // Dto에 mbti와 설명글 저장 후 return
-        return ResultResponseDto.builder()
-                .mbti(result.getMbti())
-                .resultDescription(result.getResultDescription())
-                .resultTitle(result.getResultTitle())
-                .resultSubTitle(result.getResultSubTitle())
-                .build();
-    }
-=======
-=======
         // DB수정 -> @Transactional가 있으면 변경된 것을 관찰해서 변경시켜준다.
->>>>>>> main
         Member member = memberRepository.findByUuid(uuid).orElseThrow(
                 () -> new BadRequestException("d")
         );
@@ -153,5 +108,5 @@ public class ResultService {
                 .resultSubTitle(result.getResultSubTitle())
                 .build();
     }
->>>>>>> b24d98226c2c491786038199a3d058d8eb3bda91
+
 }
