@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'CookieRun';
+  src: url('/fonts/CookieRun-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('/fonts/NanumSquareNeo-Variable.ttf') format('truetype');
+}
+
 .PageContainer {
   width: 400px;
   background-color: #ffe5c8;
@@ -24,6 +34,7 @@
 }
 
 .Title {
+  font-family: 'CookieRun', sans-serif;
   font-size: 1.5em;
   margin-top: 13%;
   margin-left: -10px;
@@ -54,22 +65,23 @@
 }
 
 .Content {
+  font-family: 'NanumSquare', sans-serif;
   font-size: 1.3em;
 }
 
-.ButtonsContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
+// .ButtonsContainer {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+// }
 
 .Button {
   background: #ffb703;
   border: 1px solid #000;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px 15px;
+  padding: 10px 110px;
   margin-right: 3px;
-  margin-top: 30px;
+  margin-top: 20px;
   color: white;
   font-size: 0.85em;
   font-weight: 800;

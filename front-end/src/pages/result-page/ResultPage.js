@@ -84,6 +84,7 @@ const ResultsPage = () => {
                 color: "#FF7A00",
                 fontWeight: "bold",
                 paddingRight: "5px",
+                fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"
               }}
             >
               {formData.resultTitle}는
@@ -92,7 +93,7 @@ const ResultsPage = () => {
           </div>
           <div className="ButtonsContainer">
             <div className="Button" onClick={() => navigate("/")}>
-              다시하기
+            다시하기
             </div>
             <div className="Button" onClick={copyToClipboard}>
               URL 복사하기
