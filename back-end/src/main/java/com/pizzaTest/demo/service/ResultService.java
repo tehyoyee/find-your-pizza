@@ -28,10 +28,24 @@ public class ResultService {
     // MBTI 설문지로 MBTI 계산
     @Transactional // Entity 수정하겠다. (= DB수정)
     public void CalulateMBTI(int[] selectQuestion, String uuid) throws BadRequestException {
+
+        // uuid 확인
         memberRepository.findByUuid(uuid).orElseThrow(
                 () -> new BadRequestException("invalid uuid")
                 //최이지 코치님 줌 들어와서 말씀하신 에러응답모델 참고 필요
         );
+
+        // 선택한 설문지 12개인지 확인
+        if(selectQuestion.length != 12){
+            throw new BadRequestException("invalid question quantity");
+        }
+
+        // 선택한 설문지 값이 0 or 1인지 확인
+        for (int i=0; i<selectQuestion.length; i++){
+            if (selectQuestion[i] > 2 || selectQuestion[i] < 0){
+                throw new BadRequestException("invalid question result");
+            }
+        }
 
         // 선택한 설문지
         int[] calculateNumber = new int[4];
