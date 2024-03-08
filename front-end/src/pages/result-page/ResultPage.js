@@ -70,7 +70,7 @@ const ResultsPage = () => {
                 <span className="TitleTextGroup">
                   <span
                     className="TitleText"
-                    style={{ color: "#FF7A00", fontWeight: "bold" }}
+                    // style={{ color: "#FF7A00", fontWeight: "bold", fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"}}
                   >
                     {formData.resultTitle}
                   </span>
@@ -84,7 +84,7 @@ const ResultsPage = () => {
                 color: "#FF7A00",
                 fontWeight: "bold",
                 paddingRight: "5px",
-                fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"
+                // fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"
               }}
             >
               {formData.resultTitle}는
