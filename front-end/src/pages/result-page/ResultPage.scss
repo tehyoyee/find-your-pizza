@@ -32,6 +32,7 @@
 
 .Title {
   font-family: "CookieRun", sans-serif;
+  font-family: "CookieRun", sans-serif;
   font-size: 1.5em;
   margin-top: 13%;
   margin-left: -10px;
@@ -63,6 +64,7 @@
 
 .Content {
   font-family: "NanumSquare", sans-serif;
+  font-family: "NanumSquare", sans-serif;
   font-size: 1.3em;
 }
 
@@ -87,6 +89,9 @@
 }
 
 .Button:hover {
+  background-color: #fcddb9;
+  color: #000;
+  cursor: pointer;
   background-color: #fcddb9;
   color: #000;
   cursor: pointer;

@@ -42,7 +42,7 @@ public class ResultService {
 
         // 선택한 설문지 값이 0 or 1인지 확인
         for (int i=0; i<selectQuestion.length; i++){
-            if (selectQuestion[i] > 2 || selectQuestion[i] < 0){
+            if (selectQuestion[i] > 1 || selectQuestion[i] < 0){
                 throw new BadRequestException("invalid question result");
             }
         }
