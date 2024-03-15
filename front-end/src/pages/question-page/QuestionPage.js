@@ -17,8 +17,8 @@ const QuestionPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const surveyresponse = await axios.get('http://localhost:8080/question');
-        const uuidresponse = await axios.get('http://localhost:8080/uuid');
+        const surveyresponse = await axios.get(`{process.env.REACT_APP_API_URL}/question`);
+        const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
