@@ -17,7 +17,7 @@ const QuestionPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const surveyresponse = await axios.get(`{process.env.REACT_APP_API_URL}/question`);
+        const surveyresponse = await axios.get(`${process.env.REACT_APP_API_URL}/question`);
         const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
@@ -41,7 +41,7 @@ const QuestionPage = () => {
     } else {
       try {
         await axios.post(
-          `{process.env.REACT_APP_API_URL}/question`,
+          `${process.env.REACT_APP_API_URL}/question`,
           { answers: updatedAnswers },
           { withCredentials: true }
         );
