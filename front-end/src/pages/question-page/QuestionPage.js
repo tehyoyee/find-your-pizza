@@ -41,7 +41,7 @@ const QuestionPage = () => {
     } else {
       try {
         await axios.post(
-          "http://localhost:8080/question",
+          `{process.env.REACT_APP_API_URL}/question`,
           { answers: updatedAnswers },
           { withCredentials: true }
         );
