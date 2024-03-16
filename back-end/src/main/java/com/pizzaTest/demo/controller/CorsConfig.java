@@ -15,7 +15,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // 허용할 Origin 설정
-        config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("https://www.find-your-pizza.site");
         // 허용할 Method 설정
         config.addAllowedMethod("*"); // 모든 HTTP 메소드 허용
         // 허용할 Header 설정

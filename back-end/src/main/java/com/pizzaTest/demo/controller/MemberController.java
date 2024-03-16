@@ -14,6 +14,12 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @GetMapping("/")
+    public String asdf() {
+        return "df";
+    }
+
+
     @GetMapping("/uuid")
     public UuidResponseDto createMember() {
         return memberService.createUuid();
