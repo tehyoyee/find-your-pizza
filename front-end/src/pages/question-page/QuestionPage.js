@@ -29,6 +29,14 @@ const QuestionPage = () => {
           maxAge: 36000,
           sameSite: 'none'
         });
+        setCookie('uuid', uuidresponse.data.uuid, {
+          // domain: `${pr,
+          path: '/',
+          httpOnly: false,
+          secure: true,
+          maxAge: 36000,
+          sameSite: 'none'
+        });
 
         setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
