@@ -20,7 +20,7 @@ public class Result {
     // desciption 길이 오류 ERROR 1406: 1406: Data too long for column 'result_description' at row 1
     @Column(length = 500)
     private String resultDescription;
-    private int[] selectQuestion;
+//    private int[] selectQuestion;
 
     // Eunum 타입 String 변환
     @Enumerated(EnumType.STRING)
@@ -31,7 +31,7 @@ public class Result {
         this.resultTitle = resultTitle;
         this.resultSubTitle = resultSubTitle;
         this.resultDescription = resultDescription;
-        this.selectQuestion = selectQuestion;
+//        this.selectQuestion = selectQuestion;
         this.mbti = mbti;
     }
 }
