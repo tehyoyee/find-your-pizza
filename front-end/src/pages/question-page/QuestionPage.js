@@ -21,7 +21,7 @@ const QuestionPage = () => {
         const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
-        setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
+        setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000, domain: `${process.env.COOKIE_DOMAIN}` });
 
         setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
