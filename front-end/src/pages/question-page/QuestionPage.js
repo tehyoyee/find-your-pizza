@@ -30,7 +30,7 @@ const QuestionPage = () => {
           sameSite: 'none'
         });
         setCookie('uuid', uuidresponse.data.uuid, {
-          // domain: `${pr,
+          domain: `back${process.env.COOKIE_DOMAIN}`,
           path: '/',
           httpOnly: false,
           secure: true,
