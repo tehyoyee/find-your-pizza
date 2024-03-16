@@ -27,7 +27,7 @@ const QuestionPage = () => {
           httpOnly: false,
           secure: true,
           maxAge: 36000,
-          sameSite: 'None'
+          sameSite: 'none'
         });
 
         setTimeout(() => setIsLoading(true), 500);
