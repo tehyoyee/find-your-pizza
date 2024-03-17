@@ -22,15 +22,7 @@ const QuestionPage = () => {
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, {
-          domain: '.find-your-pizza.site',
-          path: '/',
-          httpOnly: false,
-          secure: true,
-          maxAge: 36000,
-          sameSite: 'none'
-        });
-        setCookie('uuid', uuidresponse.data.uuid, {
-          domain: `www${process.env.COOKIE_DOMAIN}`,
+          domain: `${process.env.COOKIE_DOMAIN}`,
           path: '/',
           httpOnly: false,
           secure: true,
