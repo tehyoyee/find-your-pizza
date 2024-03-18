@@ -22,14 +22,13 @@ const QuestionPage = () => {
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, {
-          domain: `${process.env.COOKIE_DOMAIN}`,
+          domain: `${process.env.REACT_APP_DOMAIN_URL}`,
           path: '/',
           httpOnly: false,
           secure: true,
           maxAge: 36000,
           sameSite: 'none'
         });
-
         setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
         console.error(error);

@@ -4,7 +4,7 @@ import "./LoadingPage.scss";
 const LoadingPage = () => {
   return (
     <div className="LoadingContainer">
-      <img className="DeliveryImage" src="/image/pizzaBoy.png" alt="pizza delivery" />
+      <img className="DeliveryImage" src="Image/pizzaBoy.png" alt="pizza delivery" />
       <div className="LoadingTextContainer">
         <span className="LoadingText" style={{ color: "red" }}>결</span>
         <span className="LoadingText" style={{ color: "orange" }}>과</span>
