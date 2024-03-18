@@ -17,13 +17,13 @@ const QuestionPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const surveyresponse = await axios.get(`{process.env.REACT_APP_API_URL}/question`);
+        const surveyresponse = await axios.get(`${process.env.REACT_APP_API_URL}/question`);
         const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, { path: '/', maxAge: 36000 });
-
-        setTimeout(() => setIsLoading(true), 500);
+        setIsLoading(true);
+        // setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
         console.error(error);
       }
@@ -41,7 +41,7 @@ const QuestionPage = () => {
     } else {
       try {
         await axios.post(
-          "http://localhost:8080/question",
+          `${process.env.REACT_APP_API_URL}/question`,
           { answers: updatedAnswers },
           { withCredentials: true }
         );
@@ -64,7 +64,6 @@ const QuestionPage = () => {
           </div>
         </div>
       ) : (
-        // <LoadingPage />
         <div className="question-container">
           <div className="question-box">
             {survey.map((s, index) => {

@@ -5,14 +5,15 @@ const SkeletonBtn = () => {
     <>
       <button className='question-answer-btn'>
         <div className='SkeletonContainer'>
-          <span className='LoadingTextd'>S</span>
-          <span className='LoadingTextd'>k</span>
-          <span className='LoadingTextd'>e</span>
-          <span className='LoadingTextd'>l</span>
-          <span className='LoadingTextd'>e</span>
-          <span className='LoadingTextd'>t</span>
-          <span className='LoadingTextd'>o</span>
-          <span className='LoadingTextd'>n</span>
+          <span className='LoadingTextd'>잠</span>
+          <span className='LoadingTextd'>시</span>
+          <span className='LoadingTextd'>만</span>
+          <span className='LoadingTextd'>기</span>
+          <span className='LoadingTextd'>다</span>
+          <span className='LoadingTextd'>려</span>
+          <span className='LoadingTextd'>주</span>
+          <span className='LoadingTextd'>세</span>
+          <span className='LoadingTextd'>요!</span>
         </div>
       </button>
     </>
