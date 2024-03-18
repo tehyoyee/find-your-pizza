@@ -24,7 +24,8 @@ const QuestionPage = () => {
         console.log(`${process.env.COOKIE_DOMAIN_URL}`)
         console.log(`${process.env.REACT_APP_API_URL}`)
         setCookie('uuid', uuidresponse.data.uuid, {
-          domain: `${process.env.COOKIE_DOMAIN_URL}`,
+          domain: `${process.env.REACT_APP_API_URL}.replace(/^https?:\/\//, "").replace(/^back\./, "."))`,
+          // domain: `${process.env.COOKIE_DOMAIN_URL}`,
           path: '/',
           httpOnly: false,
           secure: true,
