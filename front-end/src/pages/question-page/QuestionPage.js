@@ -21,18 +21,14 @@ const QuestionPage = () => {
         const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
-        console.log(`${process.env.COOKIE_DOMAIN_URL}`)
-        console.log(`${process.env.REACT_APP_API_URL}`)
         setCookie('uuid', uuidresponse.data.uuid, {
-          domain: `${process.env.REACT_APP_API_URL}.replace(/^https?:\/\//, "").replace(/^back\./, "."))`,
-          // domain: `${process.env.COOKIE_DOMAIN_URL}`,
+          domain: `${process.env.REACT_APP_DOMAIN_URL}`,
           path: '/',
           httpOnly: false,
           secure: true,
           maxAge: 36000,
           sameSite: 'none'
         });
-
         setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
         console.error(error);
