@@ -1,0 +1,22 @@
+import React from "react";
+
+const TitleContainer = ({ formData }) => {
+  return (
+    <div className="TitleContainer">
+      <img
+        className="DeliveryImage"
+        src="Image/pizzaResultBoy.png"
+        alt="pizza delivery"
+      />
+      <span className="Title">
+        <span className="TitleText">으스스한 매콤함</span>
+        <span className="TitleTextGroup">
+          <span className="TitleText">고스트 페퍼로니 피자</span>
+          <span className="TitleText">같은 당신</span>
+        </span>
+      </span>
+    </div>
+  );
+};
+
+export default TitleContainer;
