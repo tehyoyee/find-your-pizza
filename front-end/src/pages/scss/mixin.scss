@@ -3,11 +3,17 @@
 @mixin mobile {
   @media (max-width: #{$breakpoint-mobile}) {
     @content;
+    .project-main-container{
+      transition: all 0.5s ease-in; 
+    }
   }
 }
 @mixin desktop {
   @media (min-width: #{$breakpoint-mobile + 1})
   {
     @content;
+    .project-main-container{
+      transition: all 0.5s ease-in;
+    }
   }
 }
