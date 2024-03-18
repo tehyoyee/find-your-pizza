@@ -15,6 +15,7 @@ const StartBtn = () => {
   }
 
   return (
+    // git push --force
     <button className='btn yellow' onClick={onClickHandler}>시작하기</button>
   )
 }
