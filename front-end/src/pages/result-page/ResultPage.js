@@ -65,7 +65,6 @@ const ResultsPage = () => {
         <TitleContainer formData={formData} />
         <ContentBox formData={formData} />
         <ButtonsContainer onRetry={handleRetry} onCopy={handleCopy} />
-
       </div>
     );
   };
