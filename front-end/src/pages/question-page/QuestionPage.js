@@ -22,6 +22,7 @@ const QuestionPage = () => {
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         console.log(`${process.env.COOKIE_DOMAIN}`)
+        console.log(`${process.env.REACT_APP_API_URL}`)
         setCookie('uuid', uuidresponse.data.uuid, {
           domain: `.${process.env.COOKIE_DOMAIN}`,
           path: '/',
