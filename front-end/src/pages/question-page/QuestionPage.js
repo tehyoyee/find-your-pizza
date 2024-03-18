@@ -22,7 +22,7 @@ const QuestionPage = () => {
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
         setCookie('uuid', uuidresponse.data.uuid, {
-          domain: `${process.env.COOKIE_DOMAIN}`,
+          domain: process.env.COOKIE_DOMAIN,
           path: '/',
           httpOnly: false,
           secure: true,
