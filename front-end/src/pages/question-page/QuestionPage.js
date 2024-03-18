@@ -21,6 +21,7 @@ const QuestionPage = () => {
         const uuidresponse = await axios.get(`${process.env.REACT_APP_API_URL}/uuid`);
         setSurvey(surveyresponse.data);
         setUuid(uuidresponse.data.uuid);
+        console.log(`${process.env.COOKIE_DOMAIN}`)
         setCookie('uuid', uuidresponse.data.uuid, {
           domain: `.${process.env.COOKIE_DOMAIN}`,
           path: '/',
