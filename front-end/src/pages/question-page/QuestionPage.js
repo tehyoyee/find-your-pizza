@@ -29,7 +29,6 @@ const QuestionPage = () => {
           maxAge: 36000,
           sameSite: 'none'
         });
-
         setTimeout(() => setIsLoading(true), 500);
       } catch (error) {
         console.error(error);
