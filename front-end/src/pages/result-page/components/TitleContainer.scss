@@ -1,0 +1,34 @@
+.TitleContainer {
+    display: flex;
+    // margin-top: 10%;
+    position: absolute;
+    top: 50px;
+    // left: -40px;
+  }
+  
+  .DeliveryImage {
+    width: 144px;
+    height: 138px;
+    z-index: 3;
+    margin-left: 10px;
+  }
+  
+  .Title {
+    font-family: "CookieRun", sans-serif;
+    font-family: "CookieRun", sans-serif;
+    font-size: 20px;
+    margin-top: 13%;
+    margin-left: -10px;
+  }
+  
+  .TitleTextGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    font-size: 20px;
+  }
+  
+  .TitleText {
+    font-weight: normal;
+  }

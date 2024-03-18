@@ -8,40 +8,7 @@
   min-height: 100vh;
 }
 
-.TitleContainer {
-  display: flex;
-  // margin-top: 10%;
-  position: absolute;
-  top: -140px;
-  left: -40px;
-}
 
-.DeliveryImage {
-  width: 144px;
-  height: 138px;
-  z-index: 3;
-  margin-left: 10px;
-}
-
-.Title {
-  font-family: "CookieRun", sans-serif;
-  font-family: "CookieRun", sans-serif;
-  font-size: 1.5em;
-  margin-top: 13%;
-  margin-left: -10px;
-}
-
-.TitleTextGroup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  font-size: 1em;
-}
-
-.TitleText {
-  font-weight: normal;
-}
 
 .ContentBox {
   background: #ffffff;
@@ -58,7 +25,7 @@
 .Content {
   font-family: "NanumSquare", sans-serif;
   font-family: "NanumSquare", sans-serif;
-  font-size: 1.3em;
+  font-size: 20px;
 }
 
 // .ButtonsContainer {
