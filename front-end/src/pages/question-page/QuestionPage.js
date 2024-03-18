@@ -71,7 +71,6 @@ const QuestionPage = () => {
           </div>
         </div>
       ) : (
-        // <LoadingPage />
         <div className="question-container">
           <div className="question-box">
             {survey.map((s, index) => {
