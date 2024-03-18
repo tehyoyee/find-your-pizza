@@ -62,7 +62,7 @@ const ResultsPage = () => {
             <div className="TitleContainer">
               <img
                 className="DeliveryImage"
-                src="/image/pizzaResultBoy.png"
+                src="Image/pizzaResultBoy.png"
                 alt="pizza delivery"
               />
               <span className="Title">
