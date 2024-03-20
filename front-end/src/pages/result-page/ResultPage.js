@@ -36,7 +36,7 @@ const ResultsPage = () => {
         document.body.style.backgroundColor = "#ffe5c8";
 
         return () => {
-          document.body.style.backgroundColor = "#FFFFFF";
+          document.body.style.backgroundColor = "#ffe5c8";
         };
     }, [cookies.uuid]);
 
