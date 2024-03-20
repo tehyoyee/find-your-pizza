@@ -5,7 +5,7 @@
 - 배포 예정 기간: 24.03.15 ~ 25.03.14
 
 ## Tech Stack
-- React
+- React Node20.11
 - SpringBoot 3.2
 - Mysql 8
 - GithubAction (CI/CD)

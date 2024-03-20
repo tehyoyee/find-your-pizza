@@ -3,8 +3,7 @@ import styled, { keyframes } from 'styled-components'
 
 const ImageSrc = 'Image/pizzaIcon.png'
 
-const getRandomValue = (min, max) => Math.floor(Math.random() * (max - min + 1));
-
+const getRandomValue = (max) => `${Math.floor(Math.random() * max)}px`;
 
 const snowAnimation = keyframes`
   0% {
@@ -31,17 +30,8 @@ const Snow = styled.div`
 
 
 const snowflakes = Array.from({ length: 15 }).map((_, index) => {
-  const intervalWidth = window.innerWidth / 3;
-  const intervalHeight = window.innerHeight / 3;
-
-  const middleIntervalStartX = intervalWidth;
-  const middleIntervalEndX = intervalWidth * 2;
-  const middleIntervalStartY = intervalHeight;
-  const middleIntervalEndY = intervalHeight * 2;
-
-  const left = getRandomValue(middleIntervalStartX, middleIntervalEndX) + 'px';
-  const top = getRandomValue(middleIntervalStartY, middleIntervalEndY) + 'px';
-
+  const top = getRandomValue(window.innerHeight);
+  const left = getRandomValue(window.innerWidth + 100);
   const animationDuration = Math.random() * 15 + 10;
   return (
     <Snow key={index} top={top} left={left} animationDuration={animationDuration} />
