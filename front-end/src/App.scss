@@ -12,6 +12,7 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;  
+  align-items: center;
   background-color: #ffcc93;
   overflow: hidden;
 }
@@ -21,6 +22,7 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 body::-webkit-scrollbar {
   display: none;
