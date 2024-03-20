@@ -14,7 +14,6 @@ const FirstPage = () => {
   return (
     <div className='FirstPageContainer'>
       <div className='FirstPageTop'>
-        <div style={{ width: '100%', height: '100px' }} />
         <div className='Images'>
           <img className='MainPizzaBoy' src='Image/pizzaBoy.png' alt='PizzaBoy' />
           <img className='MainPizzaIcon1' src='Image/pizzaIcon.png' alt='PizzaIcon' />
@@ -27,7 +26,7 @@ const FirstPage = () => {
       <div className='FirstPageBottom'>
         <img src='Image/djSimpson.png' alt='simpsonPizza' />
       </div>
-      {/* <PizzaFlakes /> */}
+      <PizzaFlakes />
     </div>
   );
 };
