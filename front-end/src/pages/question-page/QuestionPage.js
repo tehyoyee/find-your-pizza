@@ -1,9 +1,12 @@
+import "./QuestionPage.scss";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import axios from "axios"
+
+import Progress from './components/Progress';
+
 import SkeletonBtn from "./components/SkeletonBtn";
-import "./QuestionPage.scss";
-import axios from "axios";
 
 const QuestionPage = () => {
   const navigate = useNavigate();
@@ -11,6 +14,11 @@ const QuestionPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cookies, setCookie] = useCookies(["uuid"]);
 
+  const [progress, setProgress] = useState(0);
+  const progressCheck = () => {
+    console.log(progress)
+    setProgress(prevstate => prevstate + 10)
+  }
   const [survey, setSurvey] = useState([]); // 질문지
   const [answers, setAnswers] = useState([]); // 질문 결과 값
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // 현쟤 질문위치
@@ -57,6 +65,8 @@ const QuestionPage = () => {
       }
     }
     setAnswers(updatedAnswers);
+    const newProgress = Math.floor(((currentQuestionIndex + 1) / survey.length) * 100);
+    setProgress(newProgress);
   };
 
   return (
@@ -65,6 +75,11 @@ const QuestionPage = () => {
         <div className="question-container">
           <div className="question-box">
             <p className="question-title">질문지 목록!</p>
+            {/* <div className='progress-box' style={{ width: '90%' }}>
+              <Progress value={progress} />
+              <p style={{ fontFamily: 'MaruBuri', fontWeight: 900, textAlign: 'center' }}>{progress}%</p>
+            </div> */}
+            {/* <button onClick={progressCheck} className='question-answer-btn'></button> */}
             <SkeletonBtn />
             <SkeletonBtn />
           </div>
@@ -76,7 +91,11 @@ const QuestionPage = () => {
               if (index === currentQuestionIndex) {
                 return (
                   <>
-                    <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <p key={s.id} className="question-title">{s.questionTitel}</p>
+                    <div className='progress-box' style={{ width: '90%' }}>
+                      <Progress value={progress} />
+                      <p style={{ fontFamily: 'MaruBuri', fontWeight: 900, textAlign: 'center' }}>{progress}%</p>
+                    </div>
                     <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
                     <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
