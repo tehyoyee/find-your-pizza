@@ -82,7 +82,7 @@ const QuestionPage = () => {
               if (index === currentQuestionIndex) {
                 return (
                   <>
-                    <p key={s.id} className="question-title">{s.questionTitel}</p>
+                    <p key={s.id} className="question-title">{s.questionTitle}</p>
                     <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
                     <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
