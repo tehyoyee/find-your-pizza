@@ -15,7 +15,8 @@ const QuestionPage = () => {
   const [cookies, setCookie] = useCookies(["uuid"]);
 
   const [progress, setProgress] = useState(0);
-  const [survey, setSurvey] = useState([]); // 질문지
+
+  const [survey, setSurvey] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},]); // 질문지
   const [answers, setAnswers] = useState([]); // 질문 결과 값
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // 현쟤 질문위치
   useEffect(() => {
@@ -42,6 +43,7 @@ const QuestionPage = () => {
   }, []);
 
   const handleAnswer = async (selectedAnswer) => {
+    console.log('selectedAnswer', selectedAnswer);
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = selectedAnswer;
 
@@ -61,10 +63,13 @@ const QuestionPage = () => {
       }
     }
     setAnswers(updatedAnswers);
-    // const newProgress = Math.floor(((currentQuestionIndex + 1) / survey.length) * 100);
-    // setProgress(newProgress);
+    const newProgress = Math.floor(((currentQuestionIndex + 1) / survey.length) * 100);
+    setProgress(newProgress);
   };
-
+  // const progressCheck = () => {
+  //   console.log(progress)
+  //   setProgress(prevstate => prevstate + 10)
+  // }
   return (
     <>
       {!isLoading ? (
@@ -82,7 +87,12 @@ const QuestionPage = () => {
               if (index === currentQuestionIndex) {
                 return (
                   <>
-                    <p key={s.id} className="question-title">{s.questionTitel}</p>
+                    <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <div className='progress-box' style={{ width: '90%' }}>
+                      <Progress value={progress} />
+                      <p style={{ fontFamily: 'MaruBuri', fontWeight: 900, textAlign: 'center' }}>{progress}%</p>
+                    </div>
+                    {/* <button className='question-answer-btn' onClick={progressCheck}>{s.firstQuestion}</button> */}
                     <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
                     <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
