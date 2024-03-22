@@ -88,6 +88,11 @@ const QuestionPage = () => {
                 return (
                   <>
                     <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <div className='progress-box' style={{ width: '90%' }}>
+                      <Progress value={progress} />
+                      <p style={{ fontFamily: 'MaruBuri', fontWeight: 900, textAlign: 'center' }}>{progress}%</p>
+                    </div>
+                    {/* <button className='question-answer-btn' onClick={progressCheck}>{s.firstQuestion}</button> */}
                     <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
                     <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
