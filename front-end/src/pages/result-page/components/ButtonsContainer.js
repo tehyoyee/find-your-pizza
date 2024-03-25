@@ -1,7 +1,12 @@
 import React from "react";
 
-
 const ButtonsContainer = ({ onRetry, onCopy }) => {
+  const shareKakao = () => {
+    window.Kakao.Link.sendCustom({
+      templateId: 105921,
+    });
+  };
+
   return (
     <div className="ButtonsContainer">
       <div className="Button" onClick={onRetry}>
@@ -11,7 +16,12 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
         URL 복사하기
       </div>
       {/* 카카오톡 공유 기능을 구현할 경우에는 여기에 추가 */}
-      <div className="Button">카카오톡으로 공유</div>
+      <div className="kakao-link-btn" onClick={shareKakao}>
+        <img
+          src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+          alt="카카오링크 보내기 버튼"
+        />
+      </div>
     </div>
   );
 };
