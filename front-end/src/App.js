@@ -3,6 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import FisrtPage from './pages/first-page/FisrtPage';
 import QuestionPage from './pages/question-page/QuestionPage';
 import ResultPage from './pages/result-page/ResultPage';
+// import initialize from '../src/lib/initialize';
+
+// const App = () => {
+//   useEffect(() => {
+//     initialize();
+//   }, []);
 
 function App() {
   return (
