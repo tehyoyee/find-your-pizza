@@ -1,5 +1,4 @@
 import "./App.scss";
-import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import FisrtPage from "./pages/first-page/FisrtPage";
 import QuestionPage from "./pages/question-page/QuestionPage";
