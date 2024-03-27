@@ -3,7 +3,7 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
     const shareKakao = () => {
         if (window.Kakao && window.Kakao.isInitialized()) {
           window.Kakao.Link.sendCustom({
-            templateId: '106291',
+            templateId: 106291,
           });
         } else {
           console.log('Kakao SDK not initialized.');
