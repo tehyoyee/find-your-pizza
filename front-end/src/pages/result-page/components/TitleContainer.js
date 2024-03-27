@@ -12,7 +12,7 @@ const TitleContainer = ({ formData }) => {
       <span className="Title">
         <span className="TitleText">{formData.resultSubTitle}</span>
         <span className="TitleTextGroup">
-          <span className="TitleText" style={{ color: "#FF7A00", fontSize: "23px" }}>
+          <span className="TitleText" style={{ color: "#FF7A00", fontSize: "24px" }}>
             {formData.resultTitle}
           </span>
           <span className="TitleText">같은 당신</span>
