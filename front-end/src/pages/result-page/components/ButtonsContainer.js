@@ -20,7 +20,7 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
       </div>
       {/* 카카오톡 공유 기능을 구현할 경우에는 여기에 추가 */}
       <div className="Button" onClick={shareKakao}>
-        카카오톡으로 공유
+        카카오톡으로 공유하기
       </div>
     </div>
   );
