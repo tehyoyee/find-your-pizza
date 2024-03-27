@@ -14,10 +14,10 @@ const ResultsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [cookies, setCookie, removeCookie] = useCookies(["uuid"]);
   const uuid = cookies.uuid;
-  
+
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
-    const urlUuid = queryParams.get("uuid");
+    const urlUuid = queryParams.get('uuid');
     const cookieUuid = cookies.uuid;
 
     if (urlUuid) {
@@ -25,12 +25,13 @@ const ResultsPage = () => {
       if (cookies.uuid) {
         removeCookie("uuid", {
           path: "/",
+          // domain 옵션은 필요에 따라 추가
         });
       }
       setCookie("uuid", urlUuid, {
         path: "/",
         httpOnly: false,
-        secure: true,
+        secure: true, // 개발 환경이 아닌 HTTPS 환경에서만 true로 설정
         maxAge: 36000,
         sameSite: "none",
       });
@@ -40,21 +41,40 @@ const ResultsPage = () => {
       navigate("/");
       return;
     }
-
+    
     const jsKey = process.env.REACT_APP_KAKAO_KEY;
     // env로 키 가져오세요
 
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(jsKey);
-      console.log(window.Kakao.isInitialized());
-    } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init(jsKey);
+        console.log(window.Kakao.isInitialized());
+      } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/result`,
+          {
+            withCredentials: true,
+          }
+        );
+        setTimeout(() => {
+          setFormData(response.data);
+          setIsLoading(false);
+        }, 2000);
+      } catch (e) {
+        console.error(e);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
 
     document.body.style.backgroundColor = "#ffe5c8";
 
     return () => {
       document.body.style.backgroundColor = "#ffe5c8";
     };
-  }, [navigate, cookies, setCookie, removeCookie]);
+  }, [navigate, cookies.uuid, setCookie, removeCookie]);
 
   const handleRetry = () => {
     navigate("/");
