@@ -16,7 +16,7 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
         다시하기
       </div>
       <div className="Button" onClick={onCopy}>
-        URL 복사하기
+        결과 공유하기
       </div>
       {/* 카카오톡 공유 기능을 구현할 경우에는 여기에 추가 */}
       <div className="Button" onClick={shareKakao}>
