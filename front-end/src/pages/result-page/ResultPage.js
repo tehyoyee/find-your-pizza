@@ -22,17 +22,18 @@ const ResultsPage = () => {
 
     if (urlUuid) {
       // URL에서 uuid가 있을 경우, 기존 쿠키를 삭제하고 새 쿠키를 설정
-      removeCookie("uuid", {
-        path: "/",
-        // domain 옵션은 필요에 따라 추가
-      });
+      if (cookies.uuid) {
+        removeCookie("uuid", {
+          path: "/",
+          // domain 옵션은 필요에 따라 추가
+        });
+      }
       setCookie("uuid", urlUuid, {
-        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
-        path: '/',
+        path: "/",
         httpOnly: false,
-        secure: true,
+        secure: true, // 개발 환경이 아닌 HTTPS 환경에서만 true로 설정
         maxAge: 36000,
-        sameSite: 'none'
+        sameSite: "none",
       });
       // fetchData 함수 호출 로직이 이곳으로 이동
     } else if (!urlUuid && !cookies.uuid) {
@@ -40,14 +41,14 @@ const ResultsPage = () => {
       navigate("/");
       return;
     }
-
+    
     const jsKey = process.env.REACT_APP_KAKAO_KEY;
     // env로 키 가져오세요
 
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(jsKey);
-      console.log(window.Kakao.isInitialized());
-    } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init(jsKey);
+        console.log(window.Kakao.isInitialized());
+      } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
 
     const fetchData = async () => {
       try {
