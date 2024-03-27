@@ -12,49 +12,33 @@ const ResultsPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [cookies, setCookie] = useCookies(["uuid"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["uuid"]);
   const uuid = cookies.uuid;
-
+  
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const urlUuid = queryParams.get("uuid");
-
-    // fetchData 함수 정의
-    const fetchData = async (uuid) => {
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/result/${uuid}`,
-          {
-            withCredentials: true,
-          }
-        );
-        setTimeout(() => {
-          setFormData(response.data);
-          setIsLoading(false);
-        }, 2000);
-      } catch (e) {
-        console.error(e);
-        setIsLoading(false);
-      }
-    };
+    const cookieUuid = cookies.uuid;
 
     if (urlUuid) {
-      // URL에 uuid가 있으면, 기존 쿠키를 삭제하고 새로운 값으로 설정
+      // URL에서 uuid가 있을 경우, 기존 쿠키를 삭제하고 새 쿠키를 설정
+      if (cookies.uuid) {
+        removeCookie("uuid", {
+          path: "/",
+        });
+      }
       setCookie("uuid", urlUuid, {
-        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
         path: "/",
         httpOnly: false,
-        secure: true, // 개발 환경이 아닌 HTTPS 환경에서만 true로 설정
+        secure: true,
         maxAge: 36000,
         sameSite: "none",
       });
-      fetchData(urlUuid);
-    } else if (!urlUuid && cookies.uuid) {
-      // URL에 uuid가 없고 쿠키에만 uuid가 있는 경우
-      fetchData(cookies.uuid);
-    } else {
-      // UUID가 없는 경우 메인 화면으로 리다이렉트
+      // fetchData 함수 호출 로직이 이곳으로 이동
+    } else if (!urlUuid && !cookies.uuid) {
+      // 쿠키와 URL 모두에 UUID가 없는 경우, 메인 화면으로 리다이렉트
       navigate("/");
+      return;
     }
 
     const jsKey = process.env.REACT_APP_KAKAO_KEY;
@@ -70,7 +54,7 @@ const ResultsPage = () => {
     return () => {
       document.body.style.backgroundColor = "#ffe5c8";
     };
-  }, [navigate, cookies.uuid, setCookie]);
+  }, [navigate, cookies, setCookie, removeCookie]);
 
   const handleRetry = () => {
     navigate("/");
@@ -80,7 +64,7 @@ const ResultsPage = () => {
     try {
       const shareUrl = `${window.location.origin}/result?uuid=${uuid}`; // uuid 사용
       await navigator.clipboard.writeText(shareUrl);
-      alert("URL이 클립보드에 복사되었습니다.");
+      alert("결과가 성공적으로 복사되었습니다! 원하시는 곳에 붙여넣기해주세요!");
     } catch (err) {
       console.error("클립보드 복사 실패:", err);
     }
