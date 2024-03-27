@@ -17,37 +17,13 @@ const ResultsPage = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
-    const urlUuid = queryParams.get('uuid');
-    const cookieUuid = cookies.uuid;
+    const urlUuid = queryParams.get("uuid");
 
-    if (!cookieUuid && urlUuid) {
-      // URL에는 UUID가 있지만 쿠키에는 없는 경우, 쿠키에 저장
-      setCookie('uuid', urlUuid, {
-        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
-        path: '/',
-        httpOnly: false,
-        secure: true,
-        maxAge: 36000,
-        sameSite: 'none'
-      });
-    } else if (!cookieUuid && !urlUuid) {
-      // 쿠키와 URL 모두에 UUID가 없는 경우, 메인 화면으로 리다이렉트
-      navigate("/");
-      return;
-    }
-    
-    const jsKey = process.env.REACT_APP_KAKAO_KEY;
-    // env로 키 가져오세요
-
-      if (!window.Kakao.isInitialized()) {
-        window.Kakao.init(jsKey);
-        console.log(window.Kakao.isInitialized());
-      } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
-
-    const fetchData = async () => {
+    // fetchData 함수 정의
+    const fetchData = async (uuid) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/result`,
+          `${process.env.REACT_APP_API_URL}/result/${uuid}`,
           {
             withCredentials: true,
           }
@@ -61,7 +37,33 @@ const ResultsPage = () => {
         setIsLoading(false);
       }
     };
-    fetchData();
+
+    if (urlUuid) {
+      // URL에 uuid가 있으면, 기존 쿠키를 삭제하고 새로운 값으로 설정
+      setCookie("uuid", urlUuid, {
+        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
+        path: "/",
+        httpOnly: false,
+        secure: true, // 개발 환경이 아닌 HTTPS 환경에서만 true로 설정
+        maxAge: 36000,
+        sameSite: "none",
+      });
+      fetchData(urlUuid);
+    } else if (!urlUuid && cookies.uuid) {
+      // URL에 uuid가 없고 쿠키에만 uuid가 있는 경우
+      fetchData(cookies.uuid);
+    } else {
+      // UUID가 없는 경우 메인 화면으로 리다이렉트
+      navigate("/");
+    }
+
+    const jsKey = process.env.REACT_APP_KAKAO_KEY;
+    // env로 키 가져오세요
+
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(jsKey);
+      console.log(window.Kakao.isInitialized());
+    } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
 
     document.body.style.backgroundColor = "#ffe5c8";
 
