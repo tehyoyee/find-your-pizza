@@ -4,20 +4,59 @@ import { useCookies } from "react-cookie";
 import "./ResultPage.scss";
 import axios from "axios";
 import LoadingPage from "../loading-page/LoadingPage";
+import TitleContainer from "../result-page/components/TitleContainer";
+import ContentBox from "../result-page/components/ContentBox";
+import ButtonsContainer from "../result-page/components/ButtonsContainer";
 
 const ResultsPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [cookies] = useCookies(["uuid"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["uuid"]);
   const uuid = cookies.uuid;
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const urlUuid = queryParams.get('uuid');
+    const cookieUuid = cookies.uuid;
+
+    if (urlUuid) {
+      // URL에서 uuid가 있을 경우, 기존 쿠키를 삭제하고 새 쿠키를 설정
+      removeCookie("uuid", {
+        path: "/",
+        // domain 옵션은 필요에 따라 추가
+      });
+      setCookie("uuid", urlUuid, {
+        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
+        path: '/',
+        httpOnly: false,
+        secure: true,
+        maxAge: 36000,
+        sameSite: 'none'
+      });
+      // fetchData 함수 호출 로직이 이곳으로 이동
+    } else if (!urlUuid && !cookies.uuid) {
+      // 쿠키와 URL 모두에 UUID가 없는 경우, 메인 화면으로 리다이렉트
+      navigate("/");
+      return;
+    }
+
+    const jsKey = process.env.REACT_APP_KAKAO_KEY;
+    // env로 키 가져오세요
+
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(jsKey);
+      console.log(window.Kakao.isInitialized());
+    } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/result`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/result`,
+          {
+            withCredentials: true,
+          }
+        );
         setTimeout(() => {
           setFormData(response.data);
           setIsLoading(false);
@@ -32,15 +71,19 @@ const ResultsPage = () => {
     document.body.style.backgroundColor = "#ffe5c8";
 
     return () => {
-      document.body.style.backgroundColor = "#FFFFFF";
+      document.body.style.backgroundColor = "#ffe5c8";
     };
-  }, [uuid]);
+  }, [navigate, cookies.uuid, setCookie, removeCookie]);
 
-  const copyToClipboard = async () => {
+  const handleRetry = () => {
+    navigate("/");
+  };
+
+  const handleCopy = async () => {
     try {
-      const shareUrl = `${window.location.origin}/result?uuid=${uuid}`;
+      const shareUrl = `${window.location.origin}/result?uuid=${uuid}`; // uuid 사용
       await navigator.clipboard.writeText(shareUrl);
-      alert("URL이 클립보드에 복사되었습니다.");
+      alert("결과가 성공적으로 복사되었습니다! 원하시는 곳에 붙여넣기해주세요!");
     } catch (err) {
       console.error("클립보드 복사 실패:", err);
     }
@@ -50,59 +93,12 @@ const ResultsPage = () => {
     return <LoadingPage />;
   }
 
-  // React component
   return (
-    <>
-      {isLoading ? (
-        <LoadingPage />
-      ) : (
-        <div className="PageContainer">
-          {formData.mbti}
-          <div className="ContentBox">
-            <div className="TitleContainer">
-              <img
-                className="DeliveryImage"
-                src="/image/pizzaResultBoy.png"
-                alt="pizza delivery"
-              />
-              <span className="Title">
-                <span className="TitleText">{formData.resultSubTitle}</span>
-                <span className="TitleTextGroup">
-                  <span
-                    className="TitleText"
-                    // style={{ color: "#FF7A00", fontWeight: "bold", fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"}}
-                  >
-                    {formData.resultTitle}
-                  </span>
-                  <span className="TitleText">같은 당신</span>
-                </span>
-              </span>
-            </div>
-            <span
-              className="Content"
-              style={{
-                color: "#FF7A00",
-                fontWeight: "bold",
-                paddingRight: "5px",
-                // fontSize: formData.resultTitle && formData.resultTitle.length > 7 ? "1em" : "1.3em"
-              }}
-            >
-              {formData.resultTitle}는
-            </span>
-            <span className="Content">{formData.resultDescription}</span>
-          </div>
-          <div className="ButtonsContainer">
-            <div className="Button" onClick={() => navigate("/")}>
-            다시하기
-            </div>
-            <div className="Button" onClick={copyToClipboard}>
-              URL 복사하기
-            </div>
-            <div className="Button">카카오톡으로 공유</div>
-          </div>
-        </div>
-      )}
-    </>
+    <div className="PageContainer">
+      <TitleContainer formData={formData} />
+      <ContentBox formData={formData} />
+      <ButtonsContainer onRetry={handleRetry} onCopy={handleCopy} />
+    </div>
   );
 };
 

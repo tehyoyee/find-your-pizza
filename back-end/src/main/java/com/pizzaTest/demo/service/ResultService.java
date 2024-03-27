@@ -56,36 +56,37 @@ public class ResultService {
         // 1 : I N F J
         for (int i = 0; i < 4; i++) {
             calculateNumber[i] = selectQuestion[3 * i] + selectQuestion[3 * i + 1] + selectQuestion[3 * i + 2];
-        }
+        }   // 0 = 0 + 1 + 2 / 1 = 3 + 4 + 5 / 2 = 6 + 7 + 8
+            // I가 되려면 값이 2 혹은 3, E가 되려면 값이 0 혹은 1
         if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.INFJ;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.INFP;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] < 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] <= 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.INTJ;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] < 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] > 1 && calculateNumber[2] <= 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.INTP;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] < 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] <= 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.ISFJ;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] < 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] <= 1 && calculateNumber[2] > 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.ISFP;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] < 1) {
-            userMbti = MBTI.ISTJ;
-        } else if (calculateNumber[0] > 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] <= 1 && calculateNumber[2] <= 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.ISTP;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] > 1 && calculateNumber[1] <= 1 && calculateNumber[2] <= 1 && calculateNumber[3] > 1) {
+            userMbti = MBTI.ISTJ;
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.ENFJ;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] > 1 && calculateNumber[2] > 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.ENFP;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] > 1 && calculateNumber[2] < 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] > 1 && calculateNumber[2] <= 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.ENTJ;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] <= 1 && calculateNumber[2] > 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.ESFJ;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] > 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] <= 1 && calculateNumber[2] <= 1 && calculateNumber[3] > 1) {
             userMbti = MBTI.ESTJ;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] > 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] <= 1 && calculateNumber[2] > 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.ESFP;
-        } else if (calculateNumber[0] < 1 && calculateNumber[1] < 1 && calculateNumber[2] < 1 && calculateNumber[3] < 1) {
+        } else if (calculateNumber[0] <= 1 && calculateNumber[1] <= 1 && calculateNumber[2] <= 1 && calculateNumber[3] <= 1) {
             userMbti = MBTI.ESTP;
         } else {
             userMbti = MBTI.ENTP;

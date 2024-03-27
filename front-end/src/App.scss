@@ -1,8 +1,14 @@
 @font-face {
   font-family: "CookieRun";
-  src: url("../public/fonts/CookieRun-Regular.ttf");
+  src: url("../public/fonts/CookieRun-Bold.ttf");
+}
+@font-face {
   font-family: "NanumSquare";
   src: url("../public/fonts/NanumSquareR.ttf");
+}
+@font-face {
+  font-family: "Maruburi";
+  src: url("../public/fonts/MaruBuri-Bold.ttf");
 }
 
 body{
@@ -11,15 +17,19 @@ body{
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: center;  
+  align-items: center;
   background-color: #FFE5C8;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.project-main-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body::-webkit-scrollbar {
   display: none;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
 }

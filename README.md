@@ -21,10 +21,17 @@
 |김태형|코칭 CI/CD Cloud|
 
 ## Tech Stack
+<<<<<<< HEAD
 - React
 - SpringBoot
 - Mysql
 - GithubAction(CI/CD)
+=======
+- React Node20.11
+- SpringBoot 3.2
+- Mysql 8
+- GithubAction (CI/CD)
+>>>>>>> f653c145e229a7b1a913fc59af6ec3ee4957250d
 
 ## AWS Stack
 - Amplify

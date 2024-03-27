@@ -31,7 +31,7 @@ const Snow = styled.div`
 
 const snowflakes = Array.from({ length: 15 }).map((_, index) => {
   const top = getRandomValue(window.innerHeight);
-  const left = getRandomValue(window.innerWidth);
+  const left = getRandomValue(window.innerWidth + 100);
   const animationDuration = Math.random() * 15 + 10;
   return (
     <Snow key={index} top={top} left={left} animationDuration={animationDuration} />

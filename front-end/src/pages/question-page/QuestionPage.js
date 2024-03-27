@@ -1,9 +1,12 @@
+import "./QuestionPage.scss";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import axios from "axios"
+
+import Progress from './components/Progress';
+
 import SkeletonBtn from "./components/SkeletonBtn";
-import "./QuestionPage.scss";
-import axios from "axios";
 
 const QuestionPage = () => {
   const navigate = useNavigate();
@@ -11,7 +14,9 @@ const QuestionPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cookies, setCookie] = useCookies(["uuid"]);
 
-  const [survey, setSurvey] = useState([]); // 질문지
+  const [progress, setProgress] = useState(0);
+
+  const [survey, setSurvey] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},]); // 질문지
   const [answers, setAnswers] = useState([]); // 질문 결과 값
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // 현쟤 질문위치
   useEffect(() => {
@@ -38,6 +43,7 @@ const QuestionPage = () => {
   }, []);
 
   const handleAnswer = async (selectedAnswer) => {
+    console.log('selectedAnswer', selectedAnswer);
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = selectedAnswer;
 
@@ -57,8 +63,13 @@ const QuestionPage = () => {
       }
     }
     setAnswers(updatedAnswers);
+    const newProgress = Math.floor(((currentQuestionIndex + 1) / survey.length) * 100);
+    setProgress(newProgress);
   };
-
+  // const progressCheck = () => {
+  //   console.log(progress)
+  //   setProgress(prevstate => prevstate + 10)
+  // }
   return (
     <>
       {!isLoading ? (
@@ -77,6 +88,11 @@ const QuestionPage = () => {
                 return (
                   <>
                     <p key={s.id} className="question-title">{s.questionTitle}</p>
+                    <div className='progress-box' style={{ width: '90%' }}>
+                      <Progress value={progress} />
+                      <p style={{ fontFamily: 'MaruBuri', fontWeight: 900, textAlign: 'center' }}>{progress}%</p>
+                    </div>
+                    {/* <button className='question-answer-btn' onClick={progressCheck}>{s.firstQuestion}</button> */}
                     <button className='question-answer-btn' onClick={() => handleAnswer(0)}>{s.firstQuestion}</button>
                     <button className='question-answer-btn' onClick={() => handleAnswer(1)}>{s.secondQuestion}</button>
                   </>
