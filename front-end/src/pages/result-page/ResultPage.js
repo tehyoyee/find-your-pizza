@@ -17,14 +17,37 @@ const ResultsPage = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
-    const urlUuid = queryParams.get("uuid");
+    const urlUuid = queryParams.get('uuid');
     const cookieUuid = cookies.uuid;
 
-    // fetchData 함수 정의
-    const fetchData = async (uuid) => {
+    if (!cookieUuid && urlUuid) {
+      // URL에는 UUID가 있지만 쿠키에는 없는 경우, 쿠키에 저장
+      setCookie('uuid', urlUuid, {
+        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
+        path: '/',
+        httpOnly: false,
+        secure: true,
+        maxAge: 36000,
+        sameSite: 'none'
+      });
+    } else if (!cookieUuid && !urlUuid) {
+      // 쿠키와 URL 모두에 UUID가 없는 경우, 메인 화면으로 리다이렉트
+      navigate("/");
+      return;
+    }
+    
+    const jsKey = process.env.REACT_APP_KAKAO_KEY;
+    // env로 키 가져오세요
+
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init(jsKey);
+        console.log(window.Kakao.isInitialized());
+      } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+
+    const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/result/${uuid}`,
+          `${process.env.REACT_APP_API_URL}/result`,
           {
             withCredentials: true,
           }
@@ -38,32 +61,14 @@ const ResultsPage = () => {
         setIsLoading(false);
       }
     };
+    fetchData();
 
-    if (urlUuid) {
-      // URL에서 UUID 사용
-      setCookie("uuid", urlUuid, {
-        domain: `${process.env.REACT_APP_DOMAIN_URL}`,
-        path: "/",
-        httpOnly: false,
-        secure: true,
-        maxAge: 36000,
-        sameSite: "none",
-      });
-      fetchData(urlUuid);
-    } else if (cookieUuid) {
-      // 쿠키에서 UUID 사용
-      fetchData(cookieUuid);
-    } else {
-      // UUID가 없는 경우 메인 화면으로 리다이렉트
-      navigate("/");
-    }
+    document.body.style.backgroundColor = "#ffe5c8";
 
-    // Kakao SDK 초기화 확인 및 설정
-    const jsKey = process.env.REACT_APP_KAKAO_KEY;
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(jsKey);
-    }
-  }, [navigate, cookies, setCookie]);
+    return () => {
+      document.body.style.backgroundColor = "#ffe5c8";
+    };
+  }, [navigate, cookies.uuid, setCookie]);
 
   const handleRetry = () => {
     navigate("/");
