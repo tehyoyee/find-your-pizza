@@ -17,14 +17,17 @@ const ResultsPage = () => {
 
   const queryParams = new URLSearchParams(window.location.search);
   const urlUuid = queryParams.get("uuid");
-  // const cookieUuid = cookies.uuid;
+  const cookieUuid = cookies.uuid;
 
   useEffect(() => {
-    if (cookies.uuid) {
-      removeCookie("uuid", {
-        path: "/",
-        // domain 옵션은 필요에 따라 추가
-      });
+    if (urlUuid) {
+      // URL에서 uuid가 있을 경우, 기존 쿠키를 삭제하고 새 쿠키를 설정
+      if (cookies.uuid) {
+        removeCookie("uuid", {
+          path: "/",
+          // domain 옵션은 필요에 따라 추가
+        });
+      }
       setCookie("uuid", urlUuid, {
         path: "/",
         domain: process.env.REACT_APP_COOKIE_DOMAIN, // 예: .find-your-pizza.site
