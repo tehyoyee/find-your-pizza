@@ -58,11 +58,12 @@ const ResultsPage = () => {
             withCredentials: true,
           }
         );
-        setFormData(response.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setFormData(response.data);
+          setIsLoading(false);
+        }, 2000);
       } catch (e) {
         console.error(e);
-        // 재시도 로직, 예를 들어 재시도 횟수를 제한할 수 있음
         setIsLoading(false);
       }
     };
