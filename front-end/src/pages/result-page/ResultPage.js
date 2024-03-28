@@ -52,19 +52,17 @@ const ResultsPage = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/result`,
-          {
-            withCredentials: true,
-          }
-        );
-        setTimeout(() => {
-          setFormData(response.data);
-          setIsLoading(false);
-        }, 2000);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/result`, {
+          withCredentials: true,
+        });
+        setFormData(response.data);
+        setIsLoading(false);
       } catch (e) {
         console.error(e);
-        setIsLoading(false);
+        // 에러 메시지를 사용자에게 표시
+        alert("데이터를 가져오는데 실패했습니다. 홈 페이지로 이동합니다.");
+        // 사용자를 홈 페이지로 리다이렉트
+        navigate("/");
       }
     };
     fetchData();
