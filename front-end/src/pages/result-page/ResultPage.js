@@ -17,7 +17,7 @@ const ResultsPage = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
-    const urlUuid = queryParams.get('uuid');
+    const urlUuid = queryParams.get("uuid");
     const cookieUuid = cookies.uuid;
 
     if (urlUuid) {
@@ -30,8 +30,8 @@ const ResultsPage = () => {
       }
       setCookie("uuid", urlUuid, {
         path: "/",
-        httpOnly: false,
-        secure: true, // 개발 환경이 아닌 HTTPS 환경에서만 true로 설정
+        domain: process.env.REACT_APP_COOKIE_DOMAIN, // 예: .find-your-pizza.site
+        secure: true,
         maxAge: 36000,
         sameSite: "none",
       });
@@ -41,14 +41,14 @@ const ResultsPage = () => {
       navigate("/");
       return;
     }
-    
+
     const jsKey = process.env.REACT_APP_KAKAO_KEY;
     // env로 키 가져오세요
 
-      if (!window.Kakao.isInitialized()) {
-        window.Kakao.init(jsKey);
-        console.log(window.Kakao.isInitialized());
-      } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(jsKey);
+      console.log(window.Kakao.isInitialized());
+    } // 이부분은 index.html에서 sdk가져오는거 그다음에 키값 init해주는 코드에요
 
     const fetchData = async () => {
       try {
@@ -58,12 +58,11 @@ const ResultsPage = () => {
             withCredentials: true,
           }
         );
-        setTimeout(() => {
-          setFormData(response.data);
-          setIsLoading(false);
-        }, 2000);
+        setFormData(response.data);
+        setIsLoading(false);
       } catch (e) {
         console.error(e);
+        // 재시도 로직, 예를 들어 재시도 횟수를 제한할 수 있음
         setIsLoading(false);
       }
     };
@@ -84,7 +83,9 @@ const ResultsPage = () => {
     try {
       const shareUrl = `${window.location.origin}/result?uuid=${uuid}`; // uuid 사용
       await navigator.clipboard.writeText(shareUrl);
-      alert("결과가 성공적으로 복사되었습니다! 원하시는 곳에 붙여넣기해주세요!");
+      alert(
+        "결과가 성공적으로 복사되었습니다! 원하시는 곳에 붙여넣기해주세요!"
+      );
     } catch (err) {
       console.error("클립보드 복사 실패:", err);
     }
