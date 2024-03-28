@@ -30,7 +30,7 @@ const ResultsPage = () => {
       }
       setCookie("uuid", urlUuid, {
         path: "/",
-        domain: process.env.REACT_APP_COOKIE_DOMAIN, // 예: .find-your-pizza.site
+        domain: `${process.env.REACT_APP_DOMAIN_URL}`,// 예: .find-your-pizza.site
         secure: true,
         maxAge: 36000,
         sameSite: "none",
@@ -54,8 +54,10 @@ const ResultsPage = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/result`, {
           withCredentials: true,
         });
-        setFormData(response.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setFormData(response.data);
+          setIsLoading(false);
+        }, 2000);
       } catch (e) {
         console.error(e);
         alert("데이터를 가져오는데 실패했습니다. 홈 페이지로 이동합니다.");
