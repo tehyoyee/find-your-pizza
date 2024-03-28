@@ -15,19 +15,16 @@ const ResultsPage = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["uuid"]);
   const uuid = cookies.uuid;
 
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const urlUuid = queryParams.get("uuid");
-    const cookieUuid = cookies.uuid;
+  const queryParams = new URLSearchParams(window.location.search);
+  const urlUuid = queryParams.get("uuid");
+  // const cookieUuid = cookies.uuid;
 
-    if (urlUuid) {
-      // URL에서 uuid가 있을 경우, 기존 쿠키를 삭제하고 새 쿠키를 설정
-      if (cookies.uuid) {
-        removeCookie("uuid", {
-          path: "/",
-          // domain 옵션은 필요에 따라 추가
-        });
-      }
+  useEffect(() => {
+    if (cookies.uuid) {
+      removeCookie("uuid", {
+        path: "/",
+        // domain 옵션은 필요에 따라 추가
+      });
       setCookie("uuid", urlUuid, {
         path: "/",
         domain: process.env.REACT_APP_COOKIE_DOMAIN, // 예: .find-your-pizza.site
@@ -43,7 +40,6 @@ const ResultsPage = () => {
     }
 
     const jsKey = process.env.REACT_APP_KAKAO_KEY;
-    // env로 키 가져오세요
 
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init(jsKey);
@@ -59,20 +55,14 @@ const ResultsPage = () => {
         setIsLoading(false);
       } catch (e) {
         console.error(e);
-        // 에러 메시지를 사용자에게 표시
         alert("데이터를 가져오는데 실패했습니다. 홈 페이지로 이동합니다.");
-        // 사용자를 홈 페이지로 리다이렉트
         navigate("/");
       }
     };
     fetchData();
-
     document.body.style.backgroundColor = "#ffe5c8";
 
-    return () => {
-      document.body.style.backgroundColor = "#ffe5c8";
-    };
-  }, [navigate, cookies.uuid, setCookie, removeCookie]);
+  }, []);
 
   const handleRetry = () => {
     navigate("/");
