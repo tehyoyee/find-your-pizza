@@ -18,9 +18,8 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
       <div className="Button" onClick={onCopy}>
         결과 공유하기
       </div>
-      {/* 카카오톡 공유 기능을 구현할 경우에는 여기에 추가 */}
       <div className="Button" onClick={shareKakao}>
-        카카오톡으로 공유하기
+        사람들에게 피자테스트 알려주기
       </div>
     </div>
   );
