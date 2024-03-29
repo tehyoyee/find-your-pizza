@@ -19,7 +19,7 @@ const ButtonsContainer = ({ onRetry, onCopy }) => {
         결과 공유하기
       </div>
       <div className="Button" onClick={shareKakao}>
-        사람들에게 피자테스트 알려주기
+        친구들은 어떤 피자일까?
       </div>
     </div>
   );
