@@ -4,7 +4,7 @@ import com.pizzaTest.demo.repository.MBTI;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter @Setter
+@Getter
 @Entity
 @NoArgsConstructor
 public class Member {
@@ -20,5 +20,9 @@ public class Member {
     @Builder
     public Member(String uuid) {
         this.uuid = uuid;
+    }
+
+    public void updateMbti(MBTI mbti) {
+        this.mbti = mbti;
     }
 }

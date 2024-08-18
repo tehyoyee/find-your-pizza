@@ -1,19 +1,21 @@
 package com.pizzaTest.demo.controller;
 
+import org.apache.coyote.BadRequestException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.pizzaTest.demo.dto.ResultResponseDto;
 import com.pizzaTest.demo.service.ResultService;
+
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.coyote.BadRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@Slf4j
+@RequiredArgsConstructor
 public class ResultController {
-    @Autowired
-    private ResultService resultService;
+
+    private final ResultService resultService;
 
     // 설문 결과 요청 - 결과지 저장 및 반환
 

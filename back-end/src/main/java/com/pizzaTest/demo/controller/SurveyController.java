@@ -1,30 +1,30 @@
 package com.pizzaTest.demo.controller;
 
+import java.util.Arrays;
+import java.util.List;
 
-import com.pizzaTest.demo.dto.ResultRequestDto;
-import com.pizzaTest.demo.service.ResultService;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
 import org.apache.coyote.BadRequestException;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pizzaTest.demo.dto.ResultRequestDto;
 import com.pizzaTest.demo.dto.SurveyResponseDto;
+import com.pizzaTest.demo.service.ResultService;
 import com.pizzaTest.demo.service.SurveyService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 
 @RestController
+@RequiredArgsConstructor
 public class SurveyController {
-    @Autowired
-    private SurveyService surveyService;
 
-    @Autowired
-    private ResultService resultService;
+    private final SurveyService surveyService;
+
+    private final ResultService resultService;
 
     // 설문지 보내기(조회요청)
     @GetMapping("/question")

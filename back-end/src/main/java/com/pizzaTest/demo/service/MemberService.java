@@ -1,16 +1,20 @@
 package com.pizzaTest.demo.service;
-import com.pizzaTest.demo.domain.Member;
-import com.pizzaTest.demo.dto.UuidResponseDto;
-import com.pizzaTest.demo.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
+import com.pizzaTest.demo.domain.Member;
+import com.pizzaTest.demo.dto.UuidResponseDto;
+import com.pizzaTest.demo.repository.MemberRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class MemberService {
-    @Autowired
-    private MemberRepository memberRepository;
+
+    private final MemberRepository memberRepository;
 
     public UuidResponseDto createUuid() {
 

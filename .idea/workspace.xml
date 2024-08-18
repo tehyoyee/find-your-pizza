@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a77c5ee5-ce25-42c4-a83f-d09b5a6ed481" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/service/MemberServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/service/ResultServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/service/SurveyServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/ResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/SurveyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/controller/SurveyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/ResultRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/dto/ResultRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/SurveyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/SurveyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/templates/question/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/DemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/repository/MemoryMemberRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/repository/MemoryResultRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/repository/MemoryServeyRepositoryTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +59,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -59,41 +80,136 @@
   "keyToString": {
     "Application.DemoApplication.executor": "Run",
     "Gradle.back-end [:DemoApplication.main()].executor": "Run",
+    "JUnit.MemberServiceTest.createUuid.executor": "Run",
+    "JUnit.MemberServiceTest.executor": "Run",
+    "JUnit.ResultServiceTest.executor": "Run",
+    "JUnit.SurveyServiceTest.executor": "Debug",
+    "JUnit.com.pizzaTest.demo.service in pizza-backend.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "yongbin",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/taehyeong/pizza",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pizzaTest.demo.DemoApplication" />
-      <module name="demo.main" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.pizzaTest.demo.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.com.pizzaTest.demo.service in pizza-backend.test">
+    <configuration name="MemberServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pizza-backend.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pizzaTest.demo.*" />
+          <option name="PATTERN" value="com.pizzaTest.demo.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.pizzaTest.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.pizzaTest.demo.service.MemberServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceTest.createUuid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pizza-backend.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pizzaTest.demo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pizzaTest.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.pizzaTest.demo.service.MemberServiceTest" />
+      <option name="METHOD_NAME" value="createUuid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResultServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pizza-backend.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pizzaTest.demo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pizzaTest.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.pizzaTest.demo.service.ResultServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SurveyServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pizza-backend.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pizzaTest.demo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pizzaTest.demo.service" />
+      <option name="MAIN_CLASS_NAME" value="com.pizzaTest.demo.service.SurveyServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.pizzaTest.demo.service in pizza-backend.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pizza-backend.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pizzaTest.demo.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pizzaTest.demo.service" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="pizza-backend.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pizzaTest.demo.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DemoApplication" />
+        <item itemvalue="JUnit.com.pizzaTest.demo.service in pizza-backend.test" />
+        <item itemvalue="JUnit.SurveyServiceTest" />
+        <item itemvalue="JUnit.ResultServiceTest" />
+        <item itemvalue="JUnit.MemberServiceTest" />
+        <item itemvalue="JUnit.MemberServiceTest.createUuid" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-8336523bb0d9-301ddabe" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -105,8 +221,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708080164692</updated>
+      <workItem from="1721285737800" duration="2772000" />
+      <workItem from="1721713974400" duration="1193000" />
+      <workItem from="1722252587865" duration="981000" />
+      <workItem from="1722341591710" duration="595000" />
+      <workItem from="1722401735353" duration="3725000" />
+      <workItem from="1723817405275" duration="1494000" />
+      <workItem from="1723856173676" duration="8750000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -116,14 +253,9 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/back-end/src/main/java/com/pizzaTest/demo/service/ResultService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/back-end/src/test/java/com/pizzaTest/demo/service/SurveyServiceTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

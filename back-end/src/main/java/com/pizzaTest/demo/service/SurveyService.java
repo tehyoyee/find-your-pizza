@@ -1,25 +1,26 @@
 package com.pizzaTest.demo.service;
 
-import com.pizzaTest.demo.domain.Survey;
-import com.pizzaTest.demo.dto.SurveyResponseDto;
-import com.pizzaTest.demo.repository.SurveyRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.pizzaTest.demo.domain.Survey;
+import com.pizzaTest.demo.dto.SurveyResponseDto;
+import com.pizzaTest.demo.repository.SurveyRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class SurveyService {
 
-    @Autowired
-    private SurveyRepository surveyRepository;
+    private final SurveyRepository surveyRepository;
 
     public List<SurveyResponseDto> sendSurvey(){
 
         // repository에 있는 설문지 전부 꺼내오기
         List<Survey> surveyList = surveyRepository.findAll();
-
 
         List<SurveyResponseDto> dtoList = new ArrayList<>();
 
@@ -33,8 +34,6 @@ public class SurveyService {
                     .build());
         }
 
-
-        System.out.println("dtoList.get(0).getFirstQuestion() = " + dtoList.get(0).getFirstQuestion());
         return dtoList;
     }
 }
