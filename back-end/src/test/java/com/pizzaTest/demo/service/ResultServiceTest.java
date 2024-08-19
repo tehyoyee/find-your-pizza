@@ -2,6 +2,8 @@ package com.pizzaTest.demo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.UUID;
+
 import org.apache.coyote.BadRequestException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,7 +41,8 @@ class ResultServiceTest {
 	void calculateMbtiTest() throws BadRequestException {
 		//given
 		int[] selectQuestion = {0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1};
-		String uuid = "test-uuid";
+
+		String uuid = UUID.randomUUID().toString();
 
 		Member member = new Member(uuid);
 		memberRepository.save(member);
@@ -56,7 +59,7 @@ class ResultServiceTest {
 	@DisplayName("결과지 전송 테스트")
 	void sendResultTest() throws BadRequestException {
 		// given
-		String uuid = "test-uuid";
+		String uuid = UUID.randomUUID().toString();
 		MBTI mbti = MBTI.INTP;
 
 		Member member = new Member(uuid);
