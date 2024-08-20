@@ -37,17 +37,13 @@ public class ResultService {
         MBTI userMbti = getMbtiSb(selectQuestion);
 
         // DB수정 -> @Transactional가 있으면 변경된 것을 관찰해서 변경시켜준다.
-        Member member = memberRepository.findByUuid(uuid).orElseThrow(
-                () -> new BadRequestException("d")
-        );
+        Member member = getMemberByUuid(uuid);
 
         member.updateMbti(userMbti);
     }
 
     public ResultResponseDto sendResult(String uuid) throws BadRequestException {
-        Member member = memberRepository.findByUuid(uuid).orElseThrow(
-            () -> new BadRequestException("uuid 없음")
-        );
+        Member member = getMemberByUuid(uuid);
 
         MBTI mbti = member.getMbti();
 
@@ -65,6 +61,11 @@ public class ResultService {
             .build();
     }
 
+    private Member getMemberByUuid(String uuid) throws BadRequestException {
+        return memberRepository.findByUuid(uuid).orElseThrow(
+            () -> new BadRequestException("uuid is not found")
+        );
+    }
 
     private static MBTI getMbtiSb(int[] selectQuestion) {
         int[] calculateNumber = new int[4];
